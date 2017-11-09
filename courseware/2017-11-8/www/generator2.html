@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    function *show(){
+      alert('a');
+
+      yield 12;
+
+      alert('b');
+
+      return 5;
+    }
+
+    let obj=show();
+
+    let res1=obj.next();      //{value: 12, done: false}
+    console.log(res1);
+
+    let res2=obj.next();      //{value: 5, done: true}
+    console.log(res2);
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

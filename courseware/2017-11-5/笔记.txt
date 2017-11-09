@@ -1,0 +1,109 @@
+软件：
+1.编辑器：atom(插件)
+  language-vue
+  Markdown Preview Plus
+2.服务器：wamp、xampp、nginx
+  mysql、php
+
+  web服务器——Apache
+  数据库——MySQL
+
+3.Navicat for mysql
+
+4.手机虚拟机——夜神
+5.Photoshop CS6
+6.虚拟机VMware
+7.centos镜像
+  http://mirrors.163.com/centos/7.4.1708/isos/x86_64/
+  CentOS-7-x86_64-Minimal-1708.iso
+8.PuTTY、winSCP(Mac用yummy FTP、Linux直接ssh)
+9.git for windows（Mac用git-scm、Linux直接yum/apt）
+10.TortoiseSVN（Mac用SnailSVN、Linux直接yum/apt）
+
+11.Node.js
+  https://nodejs.org/en/
+12.phonegap-cli v6.5.2
+  npm
+13.APICloud Studio 2
+14.MongoDB
+
+----------------------------------------------------
+
+学习：
+1、多读(英文、中文)、多写文章
+2、多想
+3、多问：琢磨->网上->同学讨论->老师/助教
+4、多写代码
+
+懒
+
+----------------------------------------------------
+
+Node.js：
+1.后台语言——操作数据、接口                 35%
+2.工具——WebPack、grunt、爬虫              65%
+
+----------------------------------------------------
+
+命令行：
+window    cmd
+mac/linux 终端
+
+----------------------------------------------------
+
+运行Node：
+1.盘符      d:
+2.目录      cd 目录名
+3.运行      node xxx.js
+
+----------------------------------------------------
+
+npm——Node Package Manager
+1.自己下载——麻烦
+2.依赖
+
+自动下载、自动解决依赖
+
+cnpm——自定义源
+https://npm.taobao.org/
+
+----------------------------------------------------
+
+1.如何使用Node
+  node xx.js
+
+2.使用npm
+  npm i xxx
+  *装个cnpm
+    npm.taobao.org
+
+----------------------------------------------------
+
+npm      后台包管理器
+bower    前台包管理器
+  cnpm i -g bower
+
+----------------------------------------------------
+
+npm i -g phonegap@6.5.2
+
+----------------------------------------------------
+
+课程体系
+
+----------------------------------------------------
+
+ES6
+markdown
+git
+
+----------------------------------------------------
+
+centos      sudo yum install node
+            sudo apt install node
+
+----------------------------------------------------
+
+npm i -g n
+
+n——升级node本身

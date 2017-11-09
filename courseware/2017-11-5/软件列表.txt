@@ -1,0 +1,16 @@
+1.Atom编辑器（webStorm、sublime也可，其他就算了）
+2.集成服务器环境Windows-wamp、Mac-xampp、Linux-Nginx（有其他惯用的也可以，但要求支持PHP、MySQL）
+3.VMware虚拟机
+4.CentOS 64bit镜像（没有的去mirrors.163.com下载）
+5.Photoshop CS6以上版本
+6.putty、winSCP（Mac用yummy FTP、Linux直接ssh）
+7.git for windows（Mac用git-scm、Linux直接yum/apt）
+8.TortoiseSVN（Mac用SnailSVN、Linux直接yum/apt）
+9.Node.js v8.*
+10.phonegap-cli v6.5.2（不要用最新版）
+11.MongoDB
+12.Navicat for MySQL
+13.Chrome、Firefox
+14.APICloud Studio 2
+
+想到的这些，还有一些小的，上课用到再装
