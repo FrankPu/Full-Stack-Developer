@@ -47,8 +47,17 @@
 ### CmmonJs
 
 - Node.js遵循CommonJs规范。
+- 导出：
+  - 默认输出 `module.exports`
+  - 指定输出 `exports.名字`
+- 导入： `require` 
 - 因为nodeJs就是它的实现，所以使用node就行，也不用引入其他包
 
+
+### ES6
+
+- 默认输出 `export default`
+- 导入 `import`
 
 
 **资料：**

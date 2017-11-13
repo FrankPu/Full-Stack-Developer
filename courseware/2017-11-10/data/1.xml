@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<person>
+  <name>小明</name>
+  <age>23</age>
+  <job>前端开发</job>
+  <sister>
+    <person>
+      <name>小红</name>
+      <age>25</age>
+      <job>老师</job>
+    </person>
+    <person>
+      <name>小华</name>
+      <age>27</age>
+      <job>后台</job>
+    </person>
+  </sister>
+</person>
