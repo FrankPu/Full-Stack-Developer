@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    window.onload=function (){
+      var oBtn=document.getElementById('btn1');
+
+      oBtn.onclick=function (){
+        var formData=new FormData();
+        formData.set('a', 12);
+
+        var xhr=new XMLHttpRequest();
+
+        xhr.open('post', '1.php', true);
+        xhr.send(formData);
+
+        xhr.onreadystatechange=function (){
+          if(xhr.readyState==4){    //?
+            if((xhr.status>=200 && xhr.status<300) || xhr.status==304){
+              alert(xhr.responseText);
+            }else{
+              alert('错了');
+            }
+          }
+        };
+      };
+    };
+    </script>
+  </head>
+  <body>
+    <input type="button" value="ajax请求" id="btn1">
+  </body>
+</html>

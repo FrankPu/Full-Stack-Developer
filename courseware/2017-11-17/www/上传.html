@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    window.onload=function (){
+      var oBtn=document.getElementById('btn1');
+      var oF1=document.getElementById('f1');
+
+      oBtn.onclick=function (){
+        var formData=new FormData();
+        formData.set('f1', oF1);
+
+        var xhr=new XMLHttpRequest();
+
+        xhr.upload.onload=function (){
+          console.log('上传完成');
+        };
+        xhr.upload.onprogress=function (ev){
+          console.log(ev.loaded, ev.total);
+        };
+
+        xhr.open('post', '2.php', true);
+        xhr.send(formData);
+
+        xhr.onreadystatechange=function (){
+          if(xhr.readyState==4){    //?
+            alert(xhr.status);
+          }
+        };
+      };
+    };
+    </script>
+  </head>
+  <body>
+    <input type="file" id="f1">
+    <input type="button" value="ajax请求" id="btn1">
+  </body>
+</html>

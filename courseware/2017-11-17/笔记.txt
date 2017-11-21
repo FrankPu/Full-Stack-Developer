@@ -1,0 +1,139 @@
+wamp=>apacheServer(Web)+mysqlServer(数据库)
+mysqlServer(数据库)
+node——httpServer
+
+Web服务：apache、node
+数据库：wamp里面的MySQL、单装MySQL
+
+--------------------------------------------------------------------------------
+
+http2（实验性）    RFC 7540
+  1.强制https
+  2.性能更高——面向流、头压缩、多路复用
+  3.双向通信——服务器推送
+
+ajax2             IE10+
+  1.FormData
+    formData——容器
+    set/get/append
+  2.文件上传、上传进度监控
+    formData.set('名字', <input type="file"/>)
+    xhr.upload.onload       上传完成
+    xhr.upload.onprogress   进度变化
+  3.CORS跨域*
+
+--------------------------------------------------------------------------------
+
+1.FormData
+2.xhr.upload
+  .onload
+  .onprogress
+3.CORS跨域
+  浏览器+服务器
+
+--------------------------------------------------------------------------------
+
+1.http2
+  安全性、性能、双向
+2.ajax2
+  FormData、上传文件、CORS跨域
+
+--------------------------------------------------------------------------------
+
+formData.set('a', 12);
+formData.set('a', 5);
+  formData: {a: 5}
+
+formData.set('a', 12);
+formData.append('a', 5);
+  formData: {a: [12, 5]}
+
+--------------------------------------------------------------------------------
+
+GET方式       有缓存
+POST方式      没缓存
+
+--------------------------------------------------------------------------------
+
+1.0
+xhr.send('字符串')
+2.0
+xhr.send(formData)
+xhr.send(Blob)
+xhr.send(Buffer)
+
+--------------------------------------------------------------------------------
+
+Ajax长连接    废弃
+
+--------------------------------------------------------------------------------
+
+jsonp跨域     废弃
+https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=ad&cb=show
+
+show({q:"ad",p:false,s:["阿迪达斯官方旗舰店","adobe flash player","adobe","adobe acrobat","adobe reader","adobe acrobat pro","adsafe","administrator","adidas","adc"]});
+
+原理：
+script读
+
+jQuery的jsonp
+  dataType: 'jsonp',
+  jsonp: '回调函数的名字'
+
+--------------------------------------------------------------------------------
+
+原理：
+创建script标签，给src->调用你的函数
+
+--------------------------------------------------------------------------------
+
+ajax(可跨域)
+WebSocket(首选)
+
+http2(未来)
+
+--------------------------------------------------------------------------------
+
+WebSocket原生、socket.io原理
+
+HTML5特性
+
+--------------------------------------------------------------------------------
+
+http://localhost:8080/sum?a=12&b=5&callback=xxx
+=>xxx(17)
+
+--------------------------------------------------------------------------------
+
+https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=q&cb=aaa
+
+--------------------------------------------------------------------------------
+
+let ws=new WebSocket();
+let sock=ws.connect('ws://localhost:8080');
+
+sock.on('message', function (){});
+
+--------------------------------------------------------------------------------
+
+HTML5新特性：
+1.geolocation           定位                                实用
+2.video、audio          播放音频、视频                       实用
+  WebSocket推送+video
+  canvas+video
+3.canvas                绘图                                实用
+4.WebSocket             √                                   实用
+5.localStorage          本地存储(5M)——代替cookie(4K)         实用
+  sessionStorage                                            不实用
+6.WebSQL                少——不安全                          不实用
+  IndexedDB
+7.WebWorker             多线程                              不实用
+  JavaScript——单线程
+8.文件操作                                                  实用
+  拖拽、读取
+9.manifest离线应用                                          不实用
+  被App取代了
+
+--------------------------------------------------------------------------------
+
+svg/VML

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    window.onload=function (){
+      let oBtn=document.getElementById('btn1');
+      let oDiv=document.getElementById('div1');
+
+      oBtn.onclick=function (){
+        let w=new Worker('w3.js');
+
+        w.postMessage({name: 'login', user, pass});
+        w.postMessage({name: 'logout', token});
+        w.postMessage({name: 'reg', user, pass, email});
+      };
+    };
+    </script>
+  </head>
+  <body>
+    <input type="button" value="请求" id="btn1">
+  </body>
+</html>

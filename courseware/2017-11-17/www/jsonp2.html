@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    function show(json){
+      let oUl=document.getElementById('ul1');
+
+      oUl.innerHTML='';
+      json.s.forEach(str=>{
+        let oLi=document.createElement('li');
+
+        oLi.innerHTML=str;
+
+        oUl.appendChild(oLi);
+      });
+    }
+    </script>
+    <!--<script src="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=acc&cb=show" charset="utf-8"></script>-->
+    <!--<script>
+    show({q:"ad",p:false,s:["阿迪达斯官方旗舰店","adobe flash player","adobe","adobe acrobat","adobe reader","adobe acrobat pro","adsafe","administrator","adidas","adc"]});
+  </script>-->
+    <script>
+    window.onload=function (){
+      let oTxt=document.getElementById('txt1');
+      let oUl=document.getElementById('ul1');
+
+      oTxt.oninput=function (){
+        let oS=document.createElement('script');
+
+        oS.src=`https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=${oTxt.value}&cb=show`;
+
+        document.head.appendChild(oS);
+      };
+    };
+    </script>
+  </head>
+  <body>
+    <input type="text" id="txt1">
+    <ul id="ul1">
+
+    </ul>
+  </body>
+</html>

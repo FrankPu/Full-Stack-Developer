@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    window.onload=function (){
+      let oBtn=document.getElementById('btn1');
+      let oTxt1=document.getElementById('txt1');
+      let oTxt2=document.getElementById('txt2');
+
+      oBtn.onclick=function (){
+        let n1=parseInt(oTxt1.value);
+        let n2=parseInt(oTxt2.value);
+
+        //1.创建子进程
+        let w=new Worker('w1.js');
+
+        //2.发送
+        w.postMessage({n1, n2});
+
+        //6.接收结果
+        w.onmessage=function (ev){
+          alert(ev.data);
+        };
+      };
+    };
+    </script>
+  </head>
+  <body>
+    <input type="text" id="txt1">
+    <input type="text" id="txt2">
+    <input type="button" value="计算" id="btn1">
+  </body>
+</html>

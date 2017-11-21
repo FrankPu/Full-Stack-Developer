@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    #div1 {width:200px;height:200px;background:#CCC}
+    </style>
+    <script>
+    window.onload=function (){
+      let oBtn=document.getElementById('btn1');
+      let oDiv=document.getElementById('div1');
+
+      oBtn.onclick=function (){
+        //1.创建子进程
+        let w=new Worker('w2.js');
+
+        //2.发送
+        w.postMessage(oDiv);
+      };
+    };
+    </script>
+  </head>
+  <body>
+    <input type="button" value="计算" id="btn1">
+    <div id="div1">
+
+    </div>
+  </body>
+</html>
