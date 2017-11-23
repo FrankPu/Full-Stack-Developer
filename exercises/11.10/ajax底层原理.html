@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    window.onload=function (){
+      let oBtn=document.getElementById('btn1');
+
+      oBtn.onclick=function (){
+        //1.创建对象，此时xhr.readyState=0
+        let xhr=new XMLHttpRequest();
+
+        //2.连接，此时xhr.readyState=1
+        xhr.open('GET', 'data/1.txt?a=12&b=5', true);
+
+        //3.发送，此时xhr.readyState=2
+        xhr.send();
+
+        //4.接收，此时xhr.readyState=3/4（3是头接收完，4是体接收完）
+        xhr.onreadystatechange=function (){
+          if(xhr.readyState==4){	//此时只是接收到了回信，到不表示里面返回的是成功！
+            alert('成功收到回信');
+            if(
+              (xhr.status>=200 && xhr.status<300)||
+              xhr.status==304	//304——Not Modified也是成功！
+            ){
+              alert('回信里也是成功');
+              console.log(xhr);
+
+              let json=JSON.parse(xhr.responseText);
+
+              alert(json);
+              console.log(json);
+            }else{
+              alert('失败');
+            }
+          }
+        };
+      };
+    };
+    </script>
+  </head>
+  <body>
+    <input type="button" value="按钮" id="btn1">
+  </body>
+</html>

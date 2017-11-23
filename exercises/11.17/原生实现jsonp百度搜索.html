@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>原生实现jsonp搜索列表</title>
+    <script>
+    function show(json){
+      let oUl=document.getElementById('ul1');
+
+      oUl.innerHTML='';  //二次搜索前先清空列表
+      // show({q:"ad",p:false,s:["阿迪达斯官方旗舰店","adobe flash player","adobe","adobe acrobat","adobe reader","adobe acrobat pro","adsafe","administrator","adidas","adc"]});
+      json.s.forEach(str=>{  //此处json.s就是上面注释中的s数组
+        let oLi=document.createElement('li');
+
+        oLi.innerHTML=str;
+
+        oUl.appendChild(oLi);
+      });
+    }
+
+    window.onload=function (){
+      let oTxt=document.getElementById('txt1');
+      let oUl=document.getElementById('ul1');
+
+      oTxt.oninput=function (){  //oninput支持到IE9
+        let oS=document.createElement('script');
+
+        oS.src=`https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=${oTxt.value}&cb=show`;
+
+        document.head.appendChild(oS);  //document.head支持到IE9
+      };
+    };
+    </script>
+  </head>
+  <body>
+    <input type="text" id="txt1">
+    <ul id="ul1">
+
+    </ul>
+  </body>
+</html>
