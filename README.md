@@ -1,6 +1,8 @@
 # Full-Stack-Developer
 
 > Stay Hungry, Stay Foolish.
+>
+> [My Blog](http://blog.csdn.net/dick3741)
 
 ### 常用链接
 
