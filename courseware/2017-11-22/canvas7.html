@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    body {background:black; text-align:center}
+    #c1 {background:white}
+    </style>
+    <script>
+    window.onload=function (){
+      let oC=document.getElementById('c1');
+      let gd=oC.getContext('2d');
+
+      //#1
+      gd.beginPath();
+      gd.moveTo(100,100);
+      gd.lineTo(500,100);
+
+      gd.strokeStyle='red';
+      gd.stroke();
+
+      //#2
+      gd.beginPath();
+      gd.moveTo(500,100);
+      gd.lineTo(500,300);
+
+      gd.strokeStyle='green';
+      gd.stroke();
+
+      //#3
+      gd.beginPath();
+      gd.moveTo(500,300);
+      gd.lineTo(100,300);
+
+      gd.strokeStyle='yellow';
+      gd.stroke();
+
+      //#4
+      gd.beginPath();
+      gd.moveTo(100,300);
+      gd.lineTo(100,100);
+
+      gd.strokeStyle='pink';
+      gd.stroke();
+    };
+    </script>
+  </head>
+  <body>
+    <canvas id="c1" width="800" height="600">
+      您的浏览器并不支持canvas，请<a href="http://chrome.google.com/">下载最新版浏览器</a>
+    </canvas>
+  </body>
+</html>

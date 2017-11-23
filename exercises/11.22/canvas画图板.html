@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>canvas画板</title>
+    <style media="screen">
+    body {background:rgb(29, 36, 47); text-align:center}
+    #c1 {background:rgba(228, 236, 175,0.5)}
+    </style>
+    <script>
+    window.onload=function (){
+      let oC=document.getElementById('c1');
+      let gd=oC.getContext('2d');
+      let oColor=document.getElementById('color1');
+
+      let color='black';
+
+      oColor.onchange=function (){
+        color=this.value;
+      };
+
+      let lastX,lastY;
+
+      oC.onmousedown=function (ev){
+        /* 1.定义鼠标点下瞬间的坐标位置 */
+        lastX=ev.offsetX; //offsetX——相对于当前元素水平方向的X坐标，而clientX是相对于整个页面
+        lastY=ev.offsetY;
+
+        oC.onmousemove=function (ev){
+          console.log(ev);
+          /* 2.划线 */
+          gd.beginPath();
+          gd.moveTo(lastX, lastY);
+          gd.lineTo(ev.offsetX, ev.offsetY);  //连线到鼠标当前坐标点
+          gd.strokeStyle=color;
+          gd.stroke();
+
+          /* 3.最后重置当前坐标点的位置，下次使用 */
+          lastX=ev.offsetX;
+          lastY=ev.offsetY;
+        };
+
+        /* 4.松开鼠标时，清空操作 */
+        oC.onmouseup=function (){
+          oC.onmousemove=null;
+          oC.onmouseup=null;
+        };
+      };
+    };
+    </script>
+  </head>
+  <body>
+    <input type="color" id="color1"><br>
+    <canvas id="c1" width="800" height="600">
+      您的浏览器并不支持canvas，请<a href="http://chrome.google.com/">下载最新版浏览器</a>
+    </canvas>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    body {background:black; text-align:center}
+    #c1 {background:white}
+    </style>
+    <script>
+    //degree -> arc
+    function d2a(n){
+      return n*Math.PI/180;
+    }
+
+    //arc -> degree
+    function a2d(n){
+      return n*180/Math.PI;
+    }
+
+    window.onload=function (){
+      let oC=document.getElementById('c1');
+      let gd=oC.getContext('2d');
+
+      let cx=400,cy=300,r=150;
+      let startAng=30,endAng=70;
+
+      //#1
+      gd.moveTo(cx, cy);
+
+      //x=cx+sin(ang)*r
+      let x=cx+Math.sin(d2a(startAng))*r;
+      //y=cy-cos(ang)*r
+      let y=cy-Math.cos(d2a(startAng))*r;
+
+      gd.lineTo(x, y);
+
+      //#2
+      //gd.arc(cx, cy, r, startAng, endAng, 逆时针)
+      gd.arc(cx, cy, r, d2a(startAng-90), d2a(endAng-90), false);
+
+      //#3
+      gd.closePath();
+
+      //gd.stroke();
+      gd.fillStyle='yellow';
+      gd.fill();
+    };
+    </script>
+  </head>
+  <body>
+    <canvas id="c1" width="800" height="600">
+      您的浏览器并不支持canvas，请<a href="http://chrome.google.com/">下载最新版浏览器</a>
+    </canvas>
+  </body>
+</html>

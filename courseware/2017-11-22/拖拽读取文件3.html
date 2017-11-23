@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    #div1 {width:400px; height:300px; background:#CCC; border:1px solid black; text-align:center; line-height:300px;}
+    </style>
+    <script>
+    window.onload=function (){
+      let oDiv=document.getElementById('div1');
+
+      oDiv.addEventListener('dragenter', function (){
+        oDiv.innerHTML='请松手';
+      }, false);
+      oDiv.addEventListener('dragleave', function (){
+        oDiv.innerHTML='拖到这里上传';
+      }, false);
+
+      oDiv.addEventListener('dragover', function (ev){
+        ev.preventDefault();
+      }, false);
+      oDiv.addEventListener('drop', function (ev){
+        ev.preventDefault();
+
+        //
+        let oFile=ev.dataTransfer.files[0];
+
+        //读取
+        let reader=new FileReader();
+
+        reader.onload=function (){
+          //alert('成功');
+
+          console.log(this.result);
+
+          alert(this.result[0]);
+        };
+        reader.onerror=function (){
+          alert('读取失败了');
+        };
+        reader.readAsBinaryString(oFile);
+      }, false);
+    }
+    </script>
+  </head>
+  <body>
+    <div id="div1">拖到这里上传</div>
+  </body>
+</html>

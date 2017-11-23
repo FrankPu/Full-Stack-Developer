@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    body {background:black; text-align:center}
+    #c1 {background:white}
+    </style>
+    <script>
+    window.onload=function (){
+      let oC=document.getElementById('c1');
+      let gd=oC.getContext('2d');
+
+      gd.arc(400, 300, 150, 0*Math.PI/180, 360*Math.PI/180, false);
+      gd.stroke();
+    };
+    </script>
+  </head>
+  <body>
+    <canvas id="c1" width="800" height="600">
+      您的浏览器并不支持canvas，请<a href="http://chrome.google.com/">下载最新版浏览器</a>
+    </canvas>
+  </body>
+</html>
