@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    body {background:black; text-align: center;}
+    .parent {position:relative; width:400px; height:300px; margin:10px auto 0}
+    #c1 {background:white; position: absolute; left: 0; top:0;}
+    .box {width:200px; height:100px; border:1px solid red; position:absolute; left:100px; top:100px}
+    .box .handler {width:10px; height:10px; position:absolute; border:1px solid red; margin-left:-6px; margin-top:-6px}
+
+    .box .lt {left:0; top:0;}
+    .box .rt {right:-6px; top:0;}
+    .box .lb {left:0; bottom:-6px;}
+    .box .rb {right:-6px; bottom:-6px;}
+    </style>
+    <script>
+    window.onload=function (){
+      let oC=document.getElementById('c1');
+      let oBtn=document.getElementById('btn1');
+      let oBox=document.getElementsByClassName('box')[0];
+      let gd=oC.getContext('2d');
+
+      let lastX,lastY;
+
+      oC.onmousedown=function (ev){
+        lastX=ev.offsetX;
+        lastY=ev.offsetY;
+
+        document.onmousemove=function (ev){
+          gd.beginPath();
+
+          gd.moveTo(lastX, lastY);
+          gd.lineTo(ev.offsetX, ev.offsetY);
+
+          gd.stroke();
+
+          lastX=ev.offsetX;
+          lastY=ev.offsetY;
+        };
+
+        document.onmouseup=function (){
+          document.onmousemove=null;
+          document.onmouseup=null;
+        };
+      };
+
+      //上传
+      oBtn.onclick=function (){
+        let oC2=document.createElement('canvas');
+        let gd2=oC2.getContext('2d');
+
+        gd2.drawImage(
+          oC,
+          oBox.offsetLeft, oBox.offsetTop, oBox.offsetWidth, oBox.offsetHeight,
+          0, 0, oBox.offsetWidth, oBox.offsetHeight
+        );
+
+        //1.图片转成base64字符串
+        let str=oC2.toDataURL();
+
+        //2.发给服务器
+        let xhr=new XMLHttpRequest();
+
+        xhr.open('post', '/upload_base64', true);
+        xhr.send(encodeURIComponent(str));
+
+        xhr.onreadystatechange=function (){
+          if(xhr.readyState==4){
+            alert(xhr.status);
+          }
+        };
+      };
+    };
+    </script>
+  </head>
+  <body>
+    <input type="button" value="上传" id="btn1"><br>
+    <div class="parent">
+      <canvas id="c1" width="400" height="300"></canvas>
+      <div class="box">
+        <div class="lt handler"></div>
+        <div class="rt handler"></div>
+        <div class="lb handler"></div>
+        <div class="rb handler"></div>
+      </div>
+    </div>
+  </body>
+</html>

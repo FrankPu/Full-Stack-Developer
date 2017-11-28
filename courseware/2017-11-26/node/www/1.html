@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    window.onload=function (){
+      let oFile=document.getElementById('file1');
+      let oBtn=document.getElementById('btn1');
+
+      oBtn.onclick=function (){
+        let oAjax=new XMLHttpRequest();
+
+        oAjax.open('POST', '/upload', true);
+
+        //表单
+        let formData=new FormData();
+        formData.set('f1', oFile.files[0]);
+
+        oAjax.send(formData);
+
+        oAjax.onreadystatechange=function (){
+          if(oAjax.readyState==4){
+            alert(oAjax.status);
+          }
+        };
+      };
+    };
+    </script>
+  </head>
+  <body>
+    <input type="file" id="file1" multiple>
+    <input type="button" value="上传" id="btn1">
+  </body>
+</html>

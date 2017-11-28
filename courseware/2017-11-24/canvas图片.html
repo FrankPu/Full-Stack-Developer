@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    body {background:black; text-align: center;}
+    #c1 {background:white;}
+    </style>
+    <script>
+    window.onload=function (){
+      let oC=document.getElementById('c1');
+      let gd=oC.getContext('2d');
+      //let oImg=document.getElementById('img1');
+
+      let oImg=new Image();
+
+      oImg.src='bd_logo.png';
+
+      oImg.onload=function (){
+        //简易版
+        //drawImage(img, x, y)
+        gd.drawImage(oImg, 0, 0);
+
+        //完整版
+      };
+    };
+    </script>
+  </head>
+  <body>
+    <canvas id="c1" width="800" height="600"></canvas>
+  </body>
+</html>

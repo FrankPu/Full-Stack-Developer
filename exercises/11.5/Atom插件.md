@@ -1,5 +1,5 @@
 ### markdown
-- markdown-preview-plus
+- markdown-preview-enhanced
 - markdown-writer
 
 ### pages

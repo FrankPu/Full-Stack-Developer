@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    window.onload=function (){
+      let oFile1=document.getElementById('file1');
+      let oFile2=document.getElementById('file2');
+      let oFile3=document.getElementById('file3');
+      let oBtn=document.getElementById('btn1');
+
+      oBtn.onclick=function (){
+        let oAjax=new XMLHttpRequest();
+
+        oAjax.open('POST', '/upload', true);
+
+        //表单
+        let formData=new FormData();
+        Array.from(oFile1.files).concat(Array.from(oFile2.files), Array.from(oFile3.files)).forEach(file=>{
+          formData.append('f1', file);
+        });
+
+        oAjax.send(formData);
+
+        oAjax.onreadystatechange=function (){
+          if(oAjax.readyState==4){
+            alert(oAjax.status);
+          }
+        };
+      };
+    };
+    </script>
+  </head>
+  <body>
+    <input type="file" id="file1" multiple>
+    <input type="file" id="file2" multiple>
+    <input type="file" id="file3" multiple>
+    <input type="button" value="上传" id="btn1">
+  </body>
+</html>

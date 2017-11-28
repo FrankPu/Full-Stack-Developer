@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    body {background:black; text-align: center;}
+    #c1 {background:white;}
+    </style>
+    <script>
+    window.onload=function (){
+      let oC=document.getElementById('c1');
+      let gd=oC.getContext('2d');
+
+      //#1
+      gd.save();
+      gd.translate(250, 200);
+      gd.rotate(30*Math.PI/180);
+
+
+      //gd.strokeRect(100, 100, 300, 200);
+      gd.strokeRect(-150, -100, 300, 200);
+      gd.restore();
+
+
+      //#2
+      gd.strokeStyle='red';
+      gd.strokeRect(150, 200, 200, 100);
+    };
+    </script>
+  </head>
+  <body>
+    <canvas id="c1" width="800" height="600"></canvas>
+  </body>
+</html>

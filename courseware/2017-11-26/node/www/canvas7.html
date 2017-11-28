@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    body {background:black; text-align:center;}
+    #c1 {background:white;}
+    </style>
+    <script>
+    window.onload=function (){
+      let oV=document.getElementById('v1');
+      let oC=document.getElementById('c1');
+      let oBtn1=document.getElementById('btn1');
+      let oBtn2=document.getElementById('btn2');
+      let gd=oC.getContext('2d');
+
+      function next(){
+        //请求一帧
+        requestAnimationFrame(function (){
+          //画
+          gd.drawImage(oV, 0, 0);
+
+          //取
+          let imageData=gd.getImageData(0, 0, oC.width, oC.height);
+
+          for(let r=0;r<oC.height;r++){
+            for(let c=0;c<oC.width;c++){
+              let color=(imageData.data[(r*oC.width+c)*4]+imageData.data[(r*oC.width+c)*4+1]+imageData.data[(r*oC.width+c)*4+2])/3;
+
+              imageData.data[(r*oC.width+c)*4]=imageData.data[(r*oC.width+c)*4+1]=imageData.data[(r*oC.width+c)*4+2]=color;
+            }
+          }
+
+          gd.putImageData(imageData, 0, 0);
+
+          next();
+        });
+      }
+      next();
+
+      oBtn1.onclick=function (){
+        oV.play();
+      };
+      oBtn2.onclick=function (){
+        oV.pause();
+      };
+    };
+    </script>
+  </head>
+  <body>
+    <input type="button" value="播放" id="btn1">
+    <input type="button" value="暂停" id="btn2"><br>
+    <video id="v1" src="a.mp4" style="display:none"></video>
+    <canvas id="c1" width="636" height="360"></canvas>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    .box {width:400px;height:20px; background:#CCC;}
+    .child {height:100%; background:green; width:0;}
+    </style>
+    <script>
+    window.onload=function (){
+      let aFile=Array.from(document.getElementsByName('f1'));
+      let oBtn=document.getElementById('btn1');
+
+      oBtn.onclick=function (){
+        let oAjax=new XMLHttpRequest();
+
+        //进度
+        oAjax.upload.onerror=function (){
+          alert('上传出错，请稍候重试');
+        };
+        oAjax.upload.onload=function (){
+          alert('上传完成');
+        };
+        oAjax.upload.onprogress=function (ev){
+          let str=(100*ev.loaded/ev.total).toFixed(2)+'%';
+          let oChild=document.querySelector('.child');
+
+          oChild.style.width=str;
+        };
+
+        oAjax.open('POST', '/upload', true);
+
+        //表单
+        let formData=new FormData();
+        aFile.forEach(oFile=>{
+          Array.from(oFile.files).forEach(file=>{
+            formData.append('f1', file);
+          });
+        });
+
+        oAjax.send(formData);
+
+        oAjax.onreadystatechange=function (){
+          if(oAjax.readyState==4){
+            alert(oAjax.status);
+          }
+        };
+      };
+    };
+    </script>
+  </head>
+  <body>
+    <div class="box">
+      <div class="child"></div>
+    </div>
+    <input type="file" name="f1" multiple>
+    <input type="button" value="上传" id="btn1">
+  </body>
+</html>

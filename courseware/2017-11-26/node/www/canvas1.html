@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    body {background:black; text-align:center;}
+    #c1 {background:white;}
+    </style>
+    <script>
+    window.onload=function (){
+      let oV=document.getElementById('v1');
+      let oC=document.getElementById('c1');
+      let gd=oC.getContext('2d');
+      let oBtn=document.getElementById('btn1');
+
+      oBtn.onclick=function (){
+        gd.drawImage(oV, 0, 0);
+      };
+    };
+    </script>
+  </head>
+  <body>
+    <input type="button" value="过去" id="btn1"><br>
+    <video id="v1" src="a.mp4" controls></video>
+    <canvas id="c1" width="636" height="360"></canvas>
+  </body>
+</html>

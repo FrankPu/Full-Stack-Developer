@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    body {background:black; text-align:center;}
+    #c1 {background:white;}
+    </style>
+    <script>
+    window.onload=function (){
+      let oV=document.getElementById('v1');
+      let oC=document.getElementById('c1');
+      let oBtn1=document.getElementById('btn1');
+      let oBtn2=document.getElementById('btn2');
+      let gd=oC.getContext('2d');
+
+      /*setInterval(function (){
+        gd.drawImage(oV, 0, 0);
+      }, 16);*/
+
+      function next(){
+        //请求一帧
+        requestAnimationFrame(function (){
+          gd.drawImage(oV, 0, 0);
+
+          next();
+        });
+      }
+      next();
+
+      oBtn1.onclick=function (){
+        oV.play();
+      };
+      oBtn2.onclick=function (){
+        oV.pause();
+      };
+    };
+    </script>
+  </head>
+  <body>
+    <input type="button" value="播放" id="btn1">
+    <input type="button" value="暂停" id="btn2"><br>
+    <video id="v1" src="a.mp4" style="display:none"></video>
+    <canvas id="c1" width="636" height="360"></canvas>
+  </body>
+</html>
