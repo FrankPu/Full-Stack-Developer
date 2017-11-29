@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>单点触摸</title>
+    <meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1.0">
+    <style media="screen">
+    body {height:3000px;}
+    .box {width:100px; height:100px; background:#CCC; position:absolute; left:0; top:0}
+    </style>
+    <script>
+    window.onload=function (){
+      let oBox=document.getElementsByClassName('box')[0];
+
+      oBox.addEventListener('touchstart', function (ev){
+        //存距离
+        //targetTouches[0].pageX 表示多点触摸的第一根手指所在的页面水平位置
+        //oBox.offsetLeft 表示盒子距离页面左侧的距离
+        //得到的结果表示 手指位置相对于盒子左壁的距离
+        let disX=ev.targetTouches[0].pageX-oBox.offsetLeft;
+        let disY=ev.targetTouches[0].pageY-oBox.offsetTop;
+
+        ev.cancelBubble=true;
+        ev.preventDefault();
+
+        function fnMove(ev){
+          oBox.style.left=ev.targetTouches[0].pageX-disX+'px';
+          oBox.style.top=ev.targetTouches[0].pageY-disY+'px';
+
+          //wp
+          ev.preventDefault();
+        }
+        function fnEnd(){
+          oBox.removeEventListener('touchmove', fnMove, false);
+          oBox.removeEventListener('touchend', fnEnd, false);
+        }
+
+        oBox.addEventListener('touchmove', fnMove, false);
+        oBox.addEventListener('touchend', fnEnd, false);
+      }, false);
+    };
+    </script>
+  </head>
+  <body>
+    <div class="box">在手机、平板模式下拖动我</div>
+  </body>
+</html>
