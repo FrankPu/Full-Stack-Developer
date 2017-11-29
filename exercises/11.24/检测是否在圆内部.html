@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>检测是否在圆内部</title>
+    <style media="screen">
+    body {background:black; text-align: center;}
+    #c1 {background:white;}
+    </style>
+    <script>
+    window.onload=function (){
+      let oC=document.getElementById('c1');
+      let gd=oC.getContext('2d');
+
+      let cx=400, cy=300, r=200;
+
+      //点->圆心 的距离
+      oC.onmousemove=function (ev){
+        let a=ev.offsetX-cx;
+        let b=ev.offsetY-cy;
+
+        let dis=Math.sqrt(a**2+b**2);
+
+        gd.beginPath();
+        gd.arc(cx, cy, r, 0, 2*Math.PI, true);
+
+        if(dis<=r){
+          gd.fillStyle='rgb(181, 129, 72)';
+        }else{
+          gd.fillStyle='rgb(54, 199, 138)';
+        }
+        gd.fill();
+      };
+    };
+    </script>
+  </head>
+  <body>
+    <canvas id="c1" width="800" height="600"></canvas>
+  </body>
+</html>
