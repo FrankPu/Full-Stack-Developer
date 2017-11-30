@@ -1,0 +1,32 @@
+ 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-------+-+-------------+-------------------------------+
+|F|R|R|R| opcode|M| Payload len |    Extended payload length    |
+|I|S|S|S|  (4)  |A|     (7)     |             (16/64)           |
+|N|V|V|V|       |S|             |   (if payload len==126/127)   |
+| |1|2|3|       |K|             |                               |
++-+-+-+-+-------+-+-------------+-------------------------------+
+|     Extended payload length continued, if payload len == 127  |
++-------------------------------+-------------------------------+
+|                               |Masking-key, if MASK set to 1  |
++-------------------------------+-------------------------------+
+| Masking-key (continued)       |          Payload Data         |
++-------------------------------+-------------------------------+
+|                     Payload Data continued ...                |
++---------------------------------------------------------------+
+|                     Payload Data continued ...                |
++---------------------------------------------------------------+
+
+
+
+
+
+FIN               1bit 是否最后一帧
+RSV               3bit 预留
+Opcode            4bit 帧类型
+Mask              1bit 掩码，是否加密数据，默认必须置为1
+Payload           7bit 长度
+Masking-key       1 or 4 bit 掩码
+Payload data      (x + y) bytes 数据
+Extension data    x bytes  扩展数据
+Application data  y bytes  程序数据

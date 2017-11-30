@@ -1,0 +1,129 @@
+原生的WebSocket：
+1.socket.io特别好用
+2.JS之类的高级语言特别不擅长处理2进制数据
+3.WebSocket基于http的——WebSocket建立连接的部分，连接建立之后，就变成2进制的连接
+
+--------------------------------------------------------------------------------
+
+WebSocket更像Socket——Socket(套接字)
+
+Node做Socket通信
+
+--------------------------------------------------------------------------------
+
+OSI 7层参考交换模型
+
+物理层             编码、材质、造价、电压                             CDMA
+链路层             内网传输    内网寻址                              arp
+网络层             外网传输    外网路由                              IP
+传输层             传输质量    可靠连接(保证到达、保证正确、保证顺序)   TCP/UDP
+表现层             屏蔽不同网络类型之间的差异       ×
+会话层             保持双方的状态                  ×
+应用层             具体应用相关的功能                                 http/ftp/pop3/smtp/.../webSocket
+
+--------------------------------------------------------------------------------
+
+TCP协议——保证质量
+
+socket==tcp==node里的net
+
+--------------------------------------------------------------------------------
+
+web socket            ws://
+web socket security   wss://
+
+--------------------------------------------------------------------------------
+
+第一次数据比较特殊，还是http的头：
+GET / HTTP/1.1\r\n
+Host: localhost:8080\r\n
+Connection: Upgrade\r\n
+Pragma: no-cache\r\n
+Cache-Control: no-cache\r\n
+Upgrade: websocket\r\n
+Origin: file://\r\n
+Sec-WebSocket-Version: 13\r\n
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/62.0.3202.94 Safari/537.36\r\n
+Accept-Encoding: gzip, deflate, br\r\n
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,zh-TW;q=0.7,es;q=0.6,fr;q=0.5,pt;q=0.4\r\n
+Cookie: io=vlCCNYDawxuLJMBDAAAi\r\n
+Sec-WebSocket-Key: lfY6M2Ss6GEHnyvfxVijmg==\r\n
+Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits\r\n
+\r\n
+\r\n
+
+
+--------------------------------------------------------------------------------
+
+sha和md5
+
+sha1
+sha256
+
+--------------------------------------------------------------------------------
+
+原生WebSocket：
+1.net模块（Java——javax.websocket、PHP——socket、C——socket、python——net）
+2.增加一步——校验
+  C -> S      key
+  S -> C      base64(sha1(key+guid))
+
+--------------------------------------------------------------------------------
+
+
+
+11011010
+01101000
+...
+
+FIN           1
+RSV1~3        000
+opencode      0001
+MASK          1
+Payload len   0000011
+
+--------------------------------------------------------------------------------
+
+https://www.w3.org/TR/websockets/
+
+--------------------------------------------------------------------------------
+
+touch多点触摸、手势、方向锁定、页面滚动——iscroll、hammer
+
+--------------------------------------------------------------------------------
+
+页面在手机上测试：
+1.服务器
+2.browser-sync
+3.WebPack的dev-server
+
+--------------------------------------------------------------------------------
+
+obj.addEventListener('touchend', fn_1, false);
+obj.addEventListener('touchend', fn_2, false);
+
+touchend发生
+
+--------------------------------------------------------------------------------
+
+多点触摸：
+1.targetTouches：目标上面的手指们
+  *一个物体上有多个手指，targetTouches就有多个东西
+  **整个页面里不论总共有几个手指，targetTouches只是当前物体上的
+2.start/move都有ev.preventDefault
+3.touchend里面：
+  targetTouches   还在物体身上没离开的手指
+  changedTouches  离开的手指
+
+--------------------------------------------------------------------------------
+
+手势：
+1.旋转
+2.缩放
+
+--------------------------------------------------------------------------------
+
+方向锁定
+页面滚动
+
+--------------------------------------------------------------------------------
