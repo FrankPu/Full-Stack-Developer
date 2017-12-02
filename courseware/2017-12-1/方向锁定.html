@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width">
+    <style media="screen">
+    * {margin:0; padding:0; list-style:none;}
+    html {font-size:20px;}
+    #banner {width:25rem;height:7.8rem;overflow:hidden;}
+    #banner ul {width:9999rem; transform: translateX(0px);}
+    #banner li {width:25rem;height:7.8rem;float:left; line-height:7.8rem; text-align:center;}
+
+    #wrap {background:#CCC;}
+    #content {background:#fff;}
+    </style>
+    <script>
+    window.onload=function (){
+      //rem
+      document.documentElement.style.fontSize=document.documentElement.clientWidth*20/500+'px';
+
+      //拖
+      let banner=document.getElementById('banner');
+
+      banner.addEventListener('touchstart', function (ev){
+        let startX=ev.targetTouches[0].clientX;
+        let startY=ev.targetTouches[0].clientY;
+
+        let dir='';
+
+        function fnMove(ev){
+          //阈值:5
+          if(!dir){
+            if(Math.abs(ev.targetTouches[0].clientX-startX)>=5){
+              dir='x';
+            }else if(Math.abs(ev.targetTouches[0].clientY-startY)>=5){
+              dir='y';
+            }
+          }else{
+            if(dir=='x'){           //处理banner移动
+
+            }else if(dir=='y'){     //处理页面移动
+
+            }
+          }
+        }
+        function fnEnd(){
+          banner.removeEventListener('touchmove', fnMove, false);
+          banner.removeEventListener('touchend', fnEnd, false);
+        }
+
+        banner.addEventListener('touchmove', fnMove, false);
+        banner.addEventListener('touchend', fnEnd, false);
+      }, false);
+    }
+    </script>
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="content">
+        <div id="banner">
+          <ul>
+            <li style="background:#FC0;">1</li>
+            <li style="background:#F0C;">2</li>
+            <li style="background:#0CF;">3</li>
+            <li style="background:#F0C;">4</li>
+            <li style="background:#0FC;">5</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    .box {width:200px;height:200px; background:yellow; transform:scale(0.707107) skew(-45deg,45deg);}
+    </style>
+    <script>
+    window.onload=function (){
+      let oBox=document.getElementsByClassName('box')[0];
+
+      //matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 0)
+      //matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 0)
+      alert(getComputedStyle(oBox, false).transform);
+    };
+    </script>
+  </head>
+  <body>
+    <div class="box">
+
+    </div>
+  </body>
+</html>
