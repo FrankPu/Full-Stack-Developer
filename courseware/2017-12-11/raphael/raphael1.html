@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="raphael.js" charset="utf-8"></script>
+    <script>
+    window.onload=function (){
+      let paper=Raphael(0,0,800,600);
+
+      //图形
+      let rect=paper.rect(100,100,400,300);
+
+      //属性&样式
+      rect.attr('fill', '#CCC');
+
+      //事件
+      rect.click(function (){
+        //this.attr('fill', 'red');
+        //alert(this.attr('fill'));
+
+        this.attr({fill: 'red', width: '200', height: '150'});
+      });
+    };
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

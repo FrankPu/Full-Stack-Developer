@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width">
+    <script src="hammer.js" charset="utf-8"></script>
+    <style media="screen">
+    * {margin:0; padding:0; list-style:none}
+
+    #ul1 li {height:30px; position:relative; border:1px solid black; background:#CCC; overflow:hidden;}
+    #ul1 li .content {position:absolute; background:white; z-index:2; line-height:30px; width:100%; padding-left:10px; box-sizing: border-box;}
+    #ul1 li .content i {width:6px; height:6px; background:blue; border-radius:50%; position:absolute; left:2px; top:12px;}
+    #ul1 li .btns {position:absolute; z-index:1; right:0; top:0; line-height:30px; overflow:hidden; height:30px;}
+    #ul1 li .btns a {float:right; width:0px; height:30px; line-height:30px; text-align:center; text-decoration:none; position:relative; overflow:hidden;}
+    #ul1 li .btns a.btn_del {background:red; color:white}
+    #ul1 li .btns a.btn_read {background:blue; color:white}
+    #ul1 li .btns a span {width:50px; position:absolute; left:50%; margin-left:-25px; top:0; line-height:30px;}
+    </style>
+    <script>
+    function $(...args){
+      return document.querySelectorAll(...args);
+    }
+    window.onload=function (){
+
+      let oUl=$('#ul1')[0];
+      let aLi=$('#ul1 li');
+      let aBtnDel=$('#ul1 .btn_del');
+      let aBtnRead=$('#ul1 .btn_del');
+
+      let arrX=Array.from(aLi).map(item=>0);
+
+      Array.from(aLi).forEach((li, index)=>{
+        let hammer=new Hammer(li);
+
+        let content=li.children[0];
+        let aBtn=li.children[1].children;
+
+        let disX=0;
+
+        hammer.on('panstart', ev=>{
+          disX=ev.center.x-arrX[index];
+
+          Array.from(aLi).forEach(li=>{
+            //li.children[0].style.transition='0.3s all ease';
+            li.children[0].style.transform='translateX(0)';
+
+            arrX=arrX.map(item=>0);
+
+            Array.from($('#ul1 li .btns a')).forEach(btn=>{
+              //btn.style.transition='0.3s all ease';
+              btn.style.width='0';
+            });
+          });
+        });
+        hammer.on('panmove', ev=>{
+          arrX[index]=ev.center.x-disX;
+
+          if(arrX[index]>0){
+            arrX[index]=0;
+          }else{
+            Array.from(aBtn).forEach(btn=>{
+              btn.style.width=-arrX[index]/2+'px';
+            });
+          }
+
+          content.style.transform=`translateX(${arrX[index]}px)`;
+        });
+        hammer.on('panend', ev=>{
+          if(-arrX[index]<50){
+            arrX[index]=0;
+            Array.from(aBtn).forEach(btn=>{
+              btn.style.transition='0.3s all ease';
+              btn.style.width='0px';
+            });
+          }else{
+            arrX[index]=-100;
+            Array.from(aBtn).forEach(btn=>{
+              btn.style.transition='0.3s all ease';
+              btn.style.width='50px';
+            });
+          }
+
+          content.style.transition='0.3s all ease';
+          content.style.transform=`translateX(${arrX[index]}px)`;
+        });
+
+        content.addEventListener('transitionend', ()=>{
+          content.style.transition='none';
+          Array.from(aBtn).forEach(btn=>{
+            btn.style.transition='none';
+          });
+        }, false);
+      });
+    };
+    </script>
+  </head>
+  <body>
+    <ul id="ul1">
+      <li>
+        <div class="content"><i></i>短信1</div>
+        <div class="btns">
+          <a href="#" class="btn_read"><span>已读</span></a>
+          <a href="#" class="btn_del"><span>删除</span></a>
+        </div>
+      </li>
+      <li>
+        <div class="content"><i></i>短信1</div>
+        <div class="btns">
+          <a href="#" class="btn_read"><span>已读</span></a>
+          <a href="#" class="btn_del"><span>删除</span></a>
+        </div>
+      </li>
+      <li>
+        <div class="content"><i></i>短信1</div>
+        <div class="btns">
+          <a href="#" class="btn_read"><span>已读</span></a>
+          <a href="#" class="btn_del"><span>删除</span></a>
+        </div>
+      </li>
+      <li>
+        <div class="content"><i></i>短信1</div>
+        <div class="btns">
+          <a href="#" class="btn_read"><span>已读</span></a>
+          <a href="#" class="btn_del"><span>删除</span></a>
+        </div>
+      </li>
+      <li>
+        <div class="content"><i></i>短信1</div>
+        <div class="btns">
+          <a href="#" class="btn_read"><span>已读</span></a>
+          <a href="#" class="btn_del"><span>删除</span></a>
+        </div>
+      </li>
+    </ul>
+  </body>
+</html>
