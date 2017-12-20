@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="d3.js" charset="utf-8"></script>
+    <script>
+    //let gen=d3.randomUniform(5, 20);     //均值分布
+    let gen=d3.randomNormal(15);         //正态分布(高斯分布)
+
+    for(let i=0;i<50;i++){
+      console.log(Math.floor(gen()));
+    }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

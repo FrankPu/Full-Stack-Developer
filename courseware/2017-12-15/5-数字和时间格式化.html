@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="d3.js" charset="utf-8"></script>
+    <script>
+    //数字格式化生成器
+    /*
+    //创建format generator
+    let gen=d3.format('10.3f');
+
+    //生成器处理数据
+    console.log(gen(128.555555));
+    */
+
+    //日期格式化生成器
+    let gen=d3.timeFormat('%Y年%m月%d日 %H:%M:%S');
+
+    console.log(gen(Date.now()));
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
