@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="nav">
+  <ul>
+        <li>国际</li>
+        <li>国内</li>
+        <li>军事</li>
+        <li>武器</li>
+      </ul>
+</div>
+
+
+    <table border="1" width="100%">
+      <thead>
+        <tr>
+          <th width="200">ID</th>
+          <th>用户名</th>
+        </tr>
+      </thead>
+      <tbody>
+                  
+          <tr>
+          
+            <td>12323rwgdsfg</td>
+            <td>zhangsan</td>
+          </tr>
+                  
+          <tr class="last">
+          
+            <td>d8b462b43bf74a439a263f0bb16cb3eb</td>
+            <td>blue2017</td>
+          </tr>
+              </tbody>
+    </table>
+    <strong>底部</strong>aaa
+  </body>
+</html>

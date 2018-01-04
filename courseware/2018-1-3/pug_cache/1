@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>搜狐</title>
+    <meta charset="utf-8">
+    <meta name="Keywords" content="搜狐,门户网站,新媒体,网络媒体,新闻,财经,体育,娱乐,时尚,汽车,房产,科技,图片,论坛,微博,博客,视频,电影,电视剧">
+    <script type="text/javascript">
+      //解決IE8,IE9不支持console的问题
+      (function() {
+        var method;
+        var noop = function() {};
+        var methods = [
+            'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
+            'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
+            'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
+            'timeStamp', 'trace', 'warn'
+        ];
+        var length = methods.length;
+        var console = (window.console = window.console || {});
+      
+        while (length--) {
+            method = methods[length];
+      
+            // Only stub undefined methods.
+            if (!console[method]) {
+                console[method] = noop;
+            }
+        }
+      }());
+    </script>
+    <link id="stylemend" type="text/css" rel="stylesheet" href="">
+  </head>
+  <body>
+    <div>
+      <ul class="box aaa" id="ul1" title="adf">
+        <li ng-repeat="a in arr">内容</li>
+        <li>adf sddfwerw ertsdfsdfgsdf sdfgsdfgsdfg</li>
+        <li>17</li>
+      </ul>
+      <ol>
+        <li>12</li>
+        <li>5</li>
+        <li>8</li>
+        <li>99</li>
+        <li>27</li>
+      </ol>
+      <ol id="ol2">
+        <li>12</li>
+        <li>5</li>
+        <li>8</li>
+        <li>99</li>
+        <li>27</li>
+      </ol>
+    </div>
+    <!--[if lt IE 9]>.
+    <script src="//statics.itc.cn/web/v3/static/js/es5-shim-08e41cfc3e.min.js"></script>
+    <script src="//statics.itc.cn/web/v3/static/js/es5-sham-1d5fa1124b.min.js"></script>
+    <script src="//statics.itc.cn/web/v3/static/js/html5shiv-21fc8c2ba6.js"></script>
+    <link href="//statics.itc.cn/web/v3/static/css/ie8hack-9dce3c3b96.css" rel="stylesheet" />
+    <![endif]
+    -->
+  </body>
+</html>
