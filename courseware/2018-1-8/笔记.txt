@@ -1,0 +1,18 @@
+1.后台：安全
+2.身份验证：
+  a.cookie/session          理想
+  b.token                   跨域
+
+3.token很简单
+
+--------------------------------------------------------------------------------
+
+增删改查  (*重用)
+
+<div class="form-group">
+  <label for="xxxxx" class="col-sm-2 control-label">文件</label>
+  <div class="col-sm-10">
+    xxxx id="??"
+    <input type="text" class="form-control" id="id2" placeholder="请输入数据...">
+  </div>
+</div>
