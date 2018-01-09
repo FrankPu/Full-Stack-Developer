@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>管理端</title>
+    <script src="/js/jquery.js" charset="utf-8"></script>
+    <script src="/js/bootstrap.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body>
+    <div class="page-wrap">
+      <div class="page-menu">
+        <ul class="nav nav-pills nav-stacked">
+          <li role="presentation" class="active"><a href="#">房源</a></li>
+          <li role="presentation"><a href="#">友情链接</a></li>
+          <li role="presentation"><a href="#">广告管理</a></li>
+        </ul>
+      </div>
+      <div class="page-content">
+        <div class="navbar navbar-default">
+          <form class="navbar-form navbar-left" action="index.html" method="post">
+            <div class="form-group" style="margin-right:20px;">
+              <button type="button" class="btn btn-default glyphicon glyphicon-plus">新建</button>
+            </div>
+            <div class="form-group" style="margin-right:20px;">
+              <button type="button" class="btn btn-default glyphicon glyphicon-remove">删除</button>
+            </div>
+            <div class="form-group">
+              <input type="search" class="form-control">
+              <button type="button" class="btn btn-default">搜索</button>
+            </div>
+          </form>
+        </div>
+        <nav aria-label="Page navigation">
+          <ul class="pagination margin-0">
+            <li>
+              <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+              <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <table class="table">
+          <thead>
+            <tr>
+              <th width="300">
+                <label>
+                  <input type="checkbox">
+                  ID
+                </label>
+              </th>
+              <th width="400">标题</th>
+              <th>均价</th>
+              <th>电话</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% data.forEach(json=>{ %>
+            <tr>
+              <td>
+                <label>
+                  <input type="checkbox">
+                  <%=json.ID%>
+                </label>
+              </td>
+              <td><%=json.title%></td>
+              <td><%=json.ave_price%></td>
+              <td><%=json.tel%></td>
+              <td>
+                <a href="javascript:;">编辑</a>
+                <a href="javascript:;">删除</a>
+              </td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="shadow"></div>
+    <div class="panel panel-default add_modify_dialog">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          添加/修改
+          <a href="#" class="pull-right glyphicon glyphicon-remove"></a>
+        </h3>
+      </div>
+      <div class="panel-body" style="overflow:auto; height:460px;">
+        <form class="form-horizontal" method="post">
+          <div class="form-group">
+            <label for="id1" class="col-sm-2 control-label">数据1</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="id1" placeholder="请输入数据...">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="id2" class="col-sm-2 control-label">数据2</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="id2" placeholder="请输入数据...">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="id3" class="col-sm-2 control-label">数据3</label>
+            <div class="col-sm-10">
+              <textarea class="form-control" rows="10" id="id3" placeholder="请输入数据..."></textarea>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="id4" class="col-sm-2 control-label">选择</label>
+            <div class="col-sm-10">
+              <select class="form-control" id="id4">
+                <option value="1">数据1</option>
+                <option value="2">数据2</option>
+                <option value="3">数据3</option>
+                <option value="4">数据4</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="id4" class="col-sm-2 control-label">文件</label>
+            <div class="col-sm-10">
+              <input type="file" class="form-control">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-10 col-sm-offset-2">
+              <button type="submit" class="btn btn-primary">提交</button>
+              <button type="button" class="btn btn-danger">取消</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
