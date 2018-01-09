@@ -9,6 +9,8 @@
 ---
 
 - [课程链接](http://student.kaikeba.com/course/50/path)
+- [直播地址](https://view.csslcloud.net/api/view/index?roomid=3F78052E206DF9829C33DC5901307461&userid=7488FF1B7810DE53)
+- [社区提问](http://qa.kaikeba.com/kkb-qa/dashboard.htm)
 
 ### 上课方式
 
@@ -31,5 +33,5 @@
 
 ---
 
-- 5980元
+- ¥5980
 
