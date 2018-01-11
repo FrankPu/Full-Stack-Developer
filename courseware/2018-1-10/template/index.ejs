@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>管理端</title>
+    <script src="/js/jquery.js" charset="utf-8"></script>
+    <script src="/js/bootstrap.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body>
+    <div class="page-wrap">
+      <div class="page-menu">
+        <ul class="nav nav-pills nav-stacked">
+          <li role="presentation" class="active"><a href="#">房源</a></li>
+          <li role="presentation"><a href="#">友情链接</a></li>
+          <li role="presentation"><a href="#">广告管理</a></li>
+        </ul>
+      </div>
+      <div class="page-content">
+        <div class="navbar navbar-default">
+          <form class="navbar-form navbar-left" action="?" method="get">
+            <div class="form-group" style="margin-right:20px;">
+              <button id="btn_add" type="button" class="btn btn-default glyphicon glyphicon-plus">新建</button>
+            </div>
+            <div class="form-group" style="margin-right:20px;">
+              <button id="btn_del" type="button" class="btn btn-default glyphicon glyphicon-remove">删除</button>
+            </div>
+            <div class="form-group">
+              <input type="search" class="form-control" name="keyword" value="<%=keyword%>">
+              <button type="submit" class="btn btn-default">搜索</button>
+            </div>
+          </form>
+        </div>
+        <nav aria-label="Page navigation">
+          <ul class="pagination margin-0">
+            <li>
+              <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <%
+            let start=cur_page-(show_page_count-1)/2;
+            let end=cur_page+(show_page_count-1)/2;
+
+            if(start<1){
+              start=1;
+            }
+            if(end>page_count){
+              end=page_count;
+            }
+
+            for(let page=start;page<=end;page++){
+            %>
+              <% if(page==cur_page){ %>
+                <li><a href="?page=<%=page%>">[<%=page%>]</a></li>
+              <% }else{ %>
+                <li><a href="?page=<%=page%>"><%=page%></a></li>
+              <% } %>
+            <% } %>
+            <li>
+              <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <table class="table">
+          <thead>
+            <tr>
+              <th width="300">
+                <label>
+                  <input type="checkbox">
+                  ID
+                </label>
+              </th>
+              <th width="400">标题</th>
+              <th>均价</th>
+              <th>电话</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% data.forEach(json=>{ %>
+            <tr>
+              <td>
+                <label>
+                  <input type="checkbox" name="ID_check" value="<%=json.ID%>">
+                  <%=json.ID%>
+                </label>
+              </td>
+              <td><%=json.title%></td>
+              <td><%=json.ave_price%></td>
+              <td><%=json.tel%></td>
+              <td>
+                <a href="javascript:;" onclick="mod_data('<%=json.ID%>')">编辑</a>
+                <a href="/admin/house/delete?id=<%=json.ID%>" onclick="return confirm('你确定删除这个房屋信息吗？删除不可撤销')">删除</a>
+              </td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="shadow" class="shadow"></div>
+    <div id="dialog" class="panel panel-default add_modify_dialog">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          添加/修改
+          <a id="btn_close" href="#" class="pull-right glyphicon glyphicon-remove"></a>
+        </h3>
+      </div>
+      <div class="panel-body" style="overflow:auto; height:460px;">
+        <form class="form-horizontal" action="?" method="post" enctype="multipart/form-data">
+          <input type="hidden" id="is_mod" name="is_mod" value="false">
+          <input type="hidden" id="old_id" name="old_id" value="">
+          <div id="form_contrainer"></div>
+          <div class="form-group">
+            <div class="col-sm-10 col-sm-offset-2">
+              <button type="submit" class="btn btn-primary">提交</button>
+              <button id="btn_cancel" type="button" class="btn btn-danger">取消</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+    <script>
+    function mod_data(id){
+      $.ajax({
+        url: '/admin/house/get_data',
+        data: {id},
+        dataType: 'json',
+        success(json){
+          oShadow.style.display='block';
+          oDialog.style.display='block';
+
+          createForm(json);
+          $('#is_mod')[0].value="true";
+          $('#old_id')[0].value=id;
+        },
+        error(err){
+          alert('数据没找到，请刷新重试');
+        }
+      });
+    }
+
+
+    //打开关闭
+    let oShadow=$('#shadow')[0];
+    let oDialog=$('#dialog')[0];
+    let oBtnAdd=$('#btn_add')[0];
+    let oBtnClose=$('#btn_close')[0];
+    let oBtnCancel=$('#btn_cancel')[0];
+
+    oBtnAdd.onclick=function (){
+      oShadow.style.display='block';
+      oDialog.style.display='block';
+
+      createForm();
+      $('#is_mod')[0].value="false";
+    };
+
+    oBtnCancel.onclick=oBtnClose.onclick=function (){
+      oShadow.style.display='none';
+      oDialog.style.display='none';
+    };
+
+    function createForm(old_data={}){
+      //动态生成表单
+      let oFormContainer=$('#form_contrainer')[0];
+      oFormContainer.innerHTML='';
+
+      const form_inputs=[
+        {type: 'text', name: 'title', title: '标题'},
+        {type: 'text', name: 'sub_title', title: '副标题'},
+        {type: 'text', name: 'position_main', title: '主位置'},
+        {type: 'text', name: 'position_second', title: '副位置'},
+        {type: 'number', name: 'ave_price', title: '均价'},
+        {type: 'number', name: 'area_min', title: '最小面积'},
+        {type: 'number', name: 'area_max', title: '最大面积'},
+        {type: 'tel', name: 'tel', title: '电话'},
+        {type: 'date', name: 'sale_time', title: '开盘日期'},
+        {type: 'date', name: 'submit_time', title: '交房日期'},
+        {type: 'text', name: 'building_type', title: '建筑类型'},
+        {type: 'file', name: 'main_img', title: '大图'},
+        {type: 'file', name: 'img', title: '小图(多选)', multiple: true},
+        {type: 'text', name: 'property_types', title: '户型'},
+        {type: 'file', name: 'property_img', title: '户型图'},
+      ];
+
+      oFormContainer.innerHTML='';
+
+      for(let i=0;i<form_inputs.length;i++){
+        let data=form_inputs[i];
+        let oDiv=document.createElement('div');
+
+        oDiv.className='form-group';
+        oDiv.innerHTML=
+        `
+        <label for="id${i}" class="col-sm-2 control-label">${data.title}</label>
+        <div class="col-sm-10">
+          <input type="${data.type}" ${data.multiple?'multiple':''} class="form-control" name="${data.name}" id="id${i}" placeholder="请输入${data.title}..." value="${old_data[data.name]||''}">
+        </div>
+        `;
+
+        oFormContainer.appendChild(oDiv);
+
+        //单独处理时间
+        if(data.type=='date'){
+
+          function toDou(n){
+            return (parseInt(n)>=10)?(''+n):('0'+n);
+          }
+          if(old_data[data.name] && old_data[data.name]!='0'){
+            let oDate=new Date(old_data[data.name]*1000);
+            let input=document.getElementById(`id${i}`);
+
+            input.value=oDate.getFullYear()+'-'+toDou(oDate.getMonth()+1)+'-'+toDou(oDate.getDate());
+          }
+        }
+      }
+    }
+
+    //删除
+    let oBtnDelBat=$('#btn_del')[0];
+    let aCheck=Array.from(document.getElementsByName('ID_check'));
+    oBtnDelBat.onclick=function (){
+      let arr=[];
+
+      aCheck.forEach(ch=>{
+        if(ch.checked){
+          arr.push(ch.value);
+        }
+      });
+
+      if(arr.length==0){
+        alert('请选择要删除的东西');
+      }else{
+        let url=`/admin/house/delete?id=${encodeURIComponent(arr.join(','))}`;
+
+        if(confirm(`您真的要删除这${arr.length}条数据吗?`)){
+          window.location=url;
+        }
+      }
+    };
+    </script>
+  </body>
+</html>
