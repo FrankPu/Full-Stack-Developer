@@ -1,0 +1,55 @@
+KOA：
+1.简单、第三方中间件 -> 做东西
+2.express、koa原理
+
+koa本身、有用组件(cookie、session、static、中间件)
+
+--------------------------------------------------------------------------------
+
+koa和express区别：
+1.没有static——koa-static
+2.koa强依赖router——没有get、post，use也不能指定地址
+  koa-route(小东西)
+    路由参数        直接给中间件函数加参数——ctx, ..., next
+
+    server.use(route.get(xxx));
+
+  koa-router(项目)
+    路由参数        ctx.params
+
+    let r1=router();
+    server.use(r1.routes());
+
+    r1.get(xxx);
+
+3.中间件
+  方便
+
+  ctx.req/res             原生req、res对象
+  ctx.request/response    koa封装的req、res
+
+--------------------------------------------------------------------------------
+
+基本：
+
+koa原理
+
+--------------------------------------------------------------------------------
+
+1.koa基本使用
+2.koa中间件、koa本身原理
+
+--------------------------------------------------------------------------------
+
+1.数据处理POST、FILE
+  koa-better-body
+2.cookie、session
+  koa-cookie-parse
+  koa-cookie-session
+3.数据库
+  koa-mysql
+  koa-convert
+4.模板
+  koa-ejs、koa-pug
+
+--------------------------------------------------------------------------------
