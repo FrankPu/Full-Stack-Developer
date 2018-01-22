@@ -1,0 +1,61 @@
+怎么区分是刷新页面还是第一次加载页面？
+cookie
+
+
+assert断言可不可以看成if的缩写版
+function assert(cord, errmsg){
+  if(!cord){
+    throw new Error(errmsg);
+  }
+}
+
+
+为什么/b?user=rage&pass=123456,,,,,,,,,,,,,,,,,,,,,,,router.get('/b', async(ctx, next)=>{ console.log(ctx.params);});返回的是一个空{}
+
+
+
+上传的文件可以分类别、分名字？
+文件都存一个目录里，缺点：
+1.某些文件系统，上限比较低
+2.性能低
+
+限制单个目录的文件数量
+
+
+upload_c7b106751282dd481f455592ca4cf0b7 ->  upload/c/7/b/upload_c7b106751282dd481f455592ca4cf0b7
+upload_f258d5edb3433a6da9315c76ed524766 ->  upload/f/2/5/upload_f258d5edb3433a6da9315c76ed524766
+
+100000000
+2143
+
+
+一个用户一个目录的话会影响性能吗
+upload/653421/upload_c7b106751282dd481f455592ca4cf0b7
+
+降低单点压力：
+1.目录
+2.服务器
+3.数据库服务器
+
+
+session可以在不同请求中共用吗
+OAuth
+
+验证码是不是也是防篡改来验证
+不能防篡改
+防程序
+
+cookie和session有啥区别？
+cookie——不安全、小
+session——安全、大
+
+
+OAuth用代码简短来一把，可以不：）
+...
+
+
+
+
+
+
+老师啥时候带我们封装一个组建啊
