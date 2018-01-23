@@ -25,7 +25,7 @@ server.use(router.routes());
 
 //接口2：/b?user=rage&pass=123456
 router.get('/b', async(ctx, next)=>{
-  console.log(ctx.params);
+  console.log(ctx.request.query);
 
   ctx.response.body='bbb';
 });
