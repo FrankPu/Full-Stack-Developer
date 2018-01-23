@@ -1,0 +1,35 @@
+﻿get数据：ctx.request.query
+post数据：koa-better-body
+  server.use(convert(body({
+    uploadDir: '目录',
+    keepExtensions: true
+  })));
+
+  server.use(ctx=>{
+    ctx.request.fields      数据、文件
+  })
+
+--------------------------------------------------------------------------------
+
+cookie中，path:路径，domain:域名
+
+子目录能访问父目录的cookie；反过来不行
+
+http://xxxx/aaa     a=12
+http://xxxx/        ×
+http://xxxx/aaa/bbb √
+
+子域名能访问父级；反过来不行
+aaa.baidu.com       a=12
+baidu.com           ×
+7.aaa.baidu.com     √
+
+--------------------------------------------------------------------------------
+
+koa的cookie无需插件：
+ctx.coookies.set(key, value, options)
+  maxAge
+  signed  ->  server.keys
+
+ctx.coookies.get(key, options)
+  signed
