@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script>
+    window.onload=function (){
+      let vm=new Vue({
+        el: '#div1',
+        data: {
+          a: 12, b: 5
+        },
+        methods: {
+          fn(){
+            alert(this.a);
+          }
+        }
+      });
+    };
+    </script>
+  </head>
+  <body>
+    <div id="div1" :title="a">
+      {{a}}
+      <input type="button" value="按钮" @click="fn">
+    </div>
+  </body>
+</html>
