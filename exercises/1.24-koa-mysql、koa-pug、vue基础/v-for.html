@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="vue.js"></script>
+  <title>Document</title>
+  <script>
+    window.onload=function(){
+      let vm = new Vue({
+        el: '#div1',
+        data: {
+          arr: [
+            { 'name': 'rage', age: '27', job: 'web' },
+            { 'name': '张三', age: '17', job: 'web1' },
+            { 'name': '李四', age: '7', job: 'web2' }
+          ]
+        }
+      })
+    }
+  </script>
+</head>
+<body>
+  <div id="div1">
+    <table border="1">
+      <thead>
+        <tr>
+          <th>姓名</th>
+          <th>年龄</th>
+          <th>职业</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for='key in arr'>
+          <td>{{key.name}}</td>
+          <td>{{key.age}}</td>
+          <td>{{key.job}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <script>
+    window.onload=function(){
+        let vm=new Vue({
+            el:'#div1',
+            data:{
+                a:12,b:5
+            },
+            methods:{
+            fn(){
+                alert(this.a);
+            },
+            timmer(){
+                setTimeout(function () {
+                    vm.a+=10;
+                }, 1000);
+            }
+            
+            }
+        })
+    }
+    </script>
+</head>
+<body>
+<div id="div1">
+    v-bind绑定属性：<span :title="a">鼠标移到我身上看title="a"</span> <br>
+    v-on绑定事件，弹出a的值：<input type="button" @click='fn' value="点击"> <br>
+    v-model双向绑定a的值：<input type="text" v-model="a"> <br>
+    与定时器结合，1秒后a+=10：<input type="button" value="点击" @click='timmer'>
+</div>
+</body>
+</html>
