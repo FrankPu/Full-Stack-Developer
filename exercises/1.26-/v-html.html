@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <script>
+    window.onload=function(){
+        let vm = new Vue({
+            el:'#div1',
+            data:{
+                a:'<strong>我现在是转义过的内容了！</strong>'
+            }
+        })
+    }
+    </script>
+</head>
+<body>
+    <!-- v-html是渲染的自身标签下的所有内容，必须包含在标签内 -->
+    <div id="div1" v-html='a'></div>
+</body>
+</html>
