@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script>
+    window.onload=function (){
+      let vm=new Vue({
+        el: '#form1',
+        methods: {
+          fn(){
+              alert('提交了')
+          }
+        }
+      });
+    };
+    </script>
+  </head>
+  <body>
+      <!-- .prevent阻止默认事件的发生，实际上没有提交 -->
+    <form id="form1" action="index.js" method="post" @submit.prevent='fn'>
+        <input type="text">
+        <input type="submit" value="提交">
+    </form>
+  </body>
+</html>
