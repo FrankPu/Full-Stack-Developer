@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="vue.js" charset="utf-8"></script>
+    <style media="screen">
+    .box {width:200px; height:200px; background:#CCC}
+    </style>
+    <script>
+    window.onload=function (){
+      let vm=new Vue({
+        el: '#div1',
+        data: {
+          arr: [12, 5, 8, 99],
+          json: {a: 12, b: 55},
+          str: 'vasddfasdeer',
+          n: 12
+        },
+      });
+    };
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+      <ul>
+        <li v-for="i in n">{{i}}</li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script>
+    window.onload=function (){
+      let vm=new Vue({
+        el: '#div1',
+        components: {
+          'cmp-blue': {template: '<div>asdfasddfaswer</div>'}
+        }
+      });
+
+      let vm2=new Vue({
+        el: '#div2',
+      });
+    };
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+      <cmp-blue></cmp-blue>
+    </div>
+    <div id="div2">
+      <cmp-blue></cmp-blue>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script>
+    window.onload=function (){
+      let vm=new Vue({
+        el: '#div1',
+        data: {a: 'asdfas<strong>dfa</strong>sfda'},
+        methods: {}
+      });
+    };
+    </script>
+  </head>
+  <body>
+    <div id="div1" v-html="a">
+    </div>
+  </body>
+</html>

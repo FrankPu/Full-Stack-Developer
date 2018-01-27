@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script src="vue-router.js" charset="utf-8"></script>
+    <script>
+    window.onload=function (){
+      //1.声明路由
+      let r1=new VueRouter({
+        routes: [
+          {path: '/user/:id', component: {template: '<div>当前用户ID：{{$route.params.id}}</div>'}},
+        ]
+      });
+
+      //2.调用路由
+      let vm=new Vue({
+        el: '#div1',
+        router: r1,
+      });
+    };
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+      <router-link to="/user/32214">用户1</router-link>
+      <router-link to="/user/5542">用户2</router-link>
+      <router-link to="/user/7751">用户3</router-link>
+      <router-view></router-view>
+    </div>
+  </body>
+</html>

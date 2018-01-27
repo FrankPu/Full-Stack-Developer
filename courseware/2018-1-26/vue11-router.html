@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script src="vue-router.js" charset="utf-8"></script>
+    <script>
+    window.onload=function (){
+      //1.声明路由
+      let r1=new VueRouter({
+        routes: [
+          {path: '/user', component: {template: '<div>用户列表</div>'}},
+          {path: '/article', component: {template: '<div>文章列表</div>'}},
+        ]
+      });
+
+      //2.调用路由
+      let vm=new Vue({
+        el: '#div1',
+        router: r1
+      });
+    };
+    </script>
+
+  </head>
+  <body>
+    <div id="div1">
+      <a href="#/user">用户</a>
+      <a href="#/article">文章</a>
+      <router-view></router-view>
+    </div>
+  </body>
+</html>

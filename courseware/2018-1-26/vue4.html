@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script>
+    window.onload=function (){
+      let vm=new Vue({
+        el: '#div1',
+        data: {a: 0, b: 0},
+        methods: {},
+        computed: {
+          num1: {
+            get: function(){
+              return this.a;
+            },
+            set: function(newVal){
+              let n=parseInt(newVal);
+              if(n<0){
+                n=0;
+              }
+
+              this.a=n;
+            }
+          },
+          num2: {
+            get: function(){
+              return this.b;
+            },
+            set: function(newVal){
+              let n=parseInt(newVal);
+              if(n<0){
+                n=0;
+              }
+
+              this.b=n;
+            }
+          }
+        }
+      });
+    };
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+      <input type="text" v-model="num1">
+      <input type="text" v-model="num2">
+      {{num1+num2}}
+    </div>
+  </body>
+</html>
