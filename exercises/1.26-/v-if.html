@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .box1{
+        background: #ccc;
+        width :200px;
+        height:200px;
+    }
+    </style>
+    <script src="vue.js"></script>
+    <script>
+    window.onload=function(){
+        let vm = new Vue({
+            el:'#div1',
+            data:{
+                show:true
+            },
+            methods:{
+                fn(){
+                    this.show=!this.show
+                }
+            }
+        })
+    }
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <input type="button" value="显示隐藏" @click="fn">
+        <!-- v-if是一个boolean，当true显示，当false直接删除整个元素（而非隐藏） -->
+        <div class="box1" v-if="show"></div>
+    </div>
+</body>
+</html>
