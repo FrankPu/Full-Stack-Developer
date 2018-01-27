@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script src="vue-router.js" charset="utf-8"></script>
+    <script>
+    window.onload=function (){
+      let r1=new VueRouter({
+        routes:[
+            {path:'/user/:id', component:{template:'<div>{{$route.params.id}}</div>'}}
+        ]
+      });
+
+      let vm=new Vue({
+        el: '#div1',
+        router: r1,
+        watch:{
+            $route(newRt,oldRt){
+              alert(`路由从${oldRt.params.id}变成了${newRt.params.id}`)
+              // console.log(newVal); 返回的是路由对象
+            }
+        }
+      });
+    };
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+      $route.params.id: <br/>
+      <router-link to="/user/11111">用户1</router-link>
+      <router-link to="/user/22222">用户2</router-link>
+      <router-link to="/user/33333">用户3</router-link>
+      <router-view></router-view>
+    </div>
+  </body>
+</html>
