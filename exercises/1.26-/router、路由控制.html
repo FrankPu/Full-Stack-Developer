@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <script src="vue-router.js"></script>
+    <script>
+    window.onload=function(){
+        //1.申明路由
+        let r1 = new VueRouter({
+            routes:[
+                {path:'/user', component:{template:'<div>你已进入用户信息</div>'}},
+                {path:'/article', component:{template:'<div>你已进入文章列表</div>'}},
+                {path:'/comment', component:{template:'<div>你已经进入留言板</div>'}},
+            ]
+        });
+        
+
+        let vm = new Vue({
+            el:'#div1',
+            //2.调用路由
+            router:r1,
+            // 路由的控制
+            methods:{
+                back(){
+                    this.$router.go(-1)
+                },
+                forward() {
+                    this.$router.go(1)
+                },
+                push(){
+                    this.$router.push('/comment')
+                }
+            }
+        })
+    }
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <input type="button" value="后退" @click='back'>
+        <input type="button" value="前进" @click="forward">
+        <input type="button" value="直接进入留言板" @click='push'><br>
+        <router-link class="link" to='/user'>用户</router-link>
+        <router-link class="my-link" to='/article'>文章</router-linll>
+        <router-link class='my-link' to='/comment'>留言</router-link>
+        <router-view></router-view>
+    </div>
+</body>
+</html>
