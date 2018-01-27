@@ -1,0 +1,35 @@
+<!-- watch：异步，当数据变化时通知 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <script>
+    window.onload=function(){
+        let vm = new Vue({
+            el:'#div1',
+            data:{
+                a:0
+            },
+            methods:{},
+            computed:{},
+            watch:{
+                // 新的值在前面……汗
+                a(newVal,oldVal){
+                    alert(`从${oldVal}变成了${newVal}`)
+                }
+            }
+        })
+    }
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <input type="text"  v-model="a">
+    </div>
+</body>
+</html>
