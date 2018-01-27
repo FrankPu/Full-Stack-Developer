@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <script>
+    window.onload=function(){
+        let vm = new Vue({
+            el:'#div1',
+            data:{
+                arr:[12,5,5],
+                json:{name:'rage',job:'web'},
+                str:'i am rage',
+                num:12
+            }
+        })
+    }
+    </script>
+</head>
+<body>
+    <div id="div1">
+        遍历数组：
+        <ul>
+            <li v-for='(key,index) in arr'>{{index}}:{{key}}</li>
+        </ul>
+        遍历json：
+        <ul>
+            <li v-for='(value,key) in json'>{{key}}:{{value}}</li>
+        </ul>
+        遍历字符串：(每一个单独的字)
+        <ul>
+            <li v-for='s in str'>{{s}}</li>
+        </ul>
+        遍历数字：(从1到指定的数字)
+        <ul>
+            <li v-for="n in num">{{n}}</li>
+        </ul>
+    </div>
+</body>
+</html>

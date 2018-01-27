@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <script>
+    window.onload=function(){
+        let vm = new Vue({
+            el:'#div1',
+            data:{
+                users:[
+                    { id: 111, name: 'rage', age: 18 },
+                    { id: 222, name: 'san', age: 28 },
+                    { id: 333, name: 'si', age: 38 },
+                ]
+            }
+        })
+    }
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <ul>
+            <!-- :key提高性能，以ID为标识渲染 -->
+            <li v-for='json in users' :key='json.id'>{{json.name}}:{{json.age}}</li>
+        </ul>
+    </div>
+</body>
+</html>
