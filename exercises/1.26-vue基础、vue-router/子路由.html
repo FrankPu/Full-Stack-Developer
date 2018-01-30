@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <script src="vue-router.js"></script>
+    <script>
+     window.onload = function (){
+         let r1 =new VueRouter({
+            routes:[
+                {
+                    path: "/user/:id",
+                    component: {template:`
+                    <div>
+                        <h4>当前用户: {{$route.params.id}}</h4>
+                        <router-view></router-view>
+                    </div>
+                    `
+                    },
+                    // 子路由属性：children
+                    children:[
+                        // 子路由有一个坑：path里路径不带/
+                        {
+                            path:'info',
+                            component:{template:'<div>我是userInfo</div>'},
+                        },
+                        {
+                            path: 'pass',
+                            component: { template: '<div>我是userPass</div>' },
+                        }
+                    ]
+
+                }
+            ]
+         })
+
+         let vm = new Vue({
+             el: '#div1',
+             router: r1
+         })
+     }
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <router-link to='/user/1231/info'>用户1231信息</router-link>
+        <router-link to='/user/1231/pass'>用户1231密码</router-link> <br>
+        <router-link to='/user/3342/info'>用户3342信息</router-link>
+        <router-link to='/user/3342/pass'>用户3342密码</router-link>
+        <router-view></router-view>
+    </div>
+</body>
+</html>
