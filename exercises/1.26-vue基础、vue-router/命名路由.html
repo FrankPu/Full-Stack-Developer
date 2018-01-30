@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <script src="vue-router.js"></script>
+    <script>
+    window.onload=function(){
+        let r1 = new VueRouter({
+            routes:[
+                { path: "/user", name: "usr", component: { template: '<div>用户信息</div>' } },
+                { path: '/article', name: 'art', component: { template: '<div>文章列表</div>' } }
+            ]
+        })
+
+        let vm = new Vue({
+            el:'#div1',
+            router:r1,
+        })
+    }
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <!-- 命名路由，在router-link上做手脚 -->
+        <router-link :to='{name:"usr"}'>用户1</router-link>
+        <!-- :to="{...}"中可以传path，name，params，query -->
+        <router-link :to="{path:'/user'}">用户2</router-link>
+        <!-- 虽然跟普通的to达到了相同的效果，但是在以后可以传变量，达到了很好的扩展性 -->
+        <router-link to='/article'>文章</router-link>
+        <router-view></router-view>
+    </div>
+</body>
+</html>
