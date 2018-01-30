@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <script src="vue-router.js"></script>
+    <script>
+    window.onload=function(){
+        let r1 = new VueRouter({
+            routes:[
+                {
+                    path: '/user',
+                    components: {
+                        default:{template:'<div>默认视图</div>'},
+                        a:{template:'<div>aaa</div>'},
+                        b:{template:'<div>bbb</div>'}
+                    }
+                }
+            ]
+        })
+
+        let vm = new Vue({
+            el:"#div1",
+            router:r1
+        })
+    }
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <!-- 命名视图，在router-view上做手脚 -->
+        <router-view name='a'></router-view>
+        <router-link :to="{path:'/user'}">点我点我</router-link>
+        <router-view name="b"></router-view>
+    </div>
+</body>
+</html>
