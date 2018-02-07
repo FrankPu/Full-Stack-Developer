@@ -1,0 +1,1364 @@
+* {
+	margin:0px;
+	padding:0px;
+	border:0px;
+	font-size: 14px;
+	list-style: none;
+}
+h3{
+	font-size: 24px;
+    line-height: 24px;
+    padding-left: 15px;
+    font-weight: normal;
+}
+.main-title{
+	margin: 30px 0 0;
+	overflow: hidden;
+}
+.orange-font{
+	color: #f60;
+    font-weight: 700;
+}
+a{
+	text-decoration: none;
+	color:black;
+}
+
+li{
+	float: left;
+}
+.all-div{
+	width:1180px;
+	margin:0px auto;
+}
+	.title-div{
+		width:100%;
+		height: 70px;
+	}
+		.title-div img{
+			width:100%;
+			height:70px;
+		
+		}
+	.loginmenu-div{
+		width:100%;
+		height:44px;
+		line-height: 44px;
+		color:#666;
+		border-bottom:#DDD 1px solid;
+	}
+		.menu{
+			float:left;
+		}
+			.loginmenu-div .menu a{
+				color:#666;
+			}
+			
+		.login{
+			float:right;
+			display: inline-block;
+    		vertical-align: middle;
+		}
+		.login *{
+			color:#666;
+		}
+			.line{
+				margin: 0 7px;
+				width:1px;
+				color:#DDD;
+			}
+			.user-icon{
+				display: inline-block;
+				height: 14px;
+				width: 14px;
+			    vertical-align: -2px;
+			    margin-right: 5px;
+				background: url(../img/usericon.png);
+    			background-position: -40px -60px;
+			}
+			.collect-icon{
+				display: inline-block;
+				height: 14px;
+				width: 14px;
+			    vertical-align: -2px;
+			    margin-right: 5px;
+				background: url(../img/usericon.png);
+    			background-position: -80px -60px;
+			}
+	.search-div{
+		width:100%;
+		margin-top:15px;
+	    display: block;	
+	    overflow: hidden;
+	}	
+		.search-div img{
+			float:left;
+		}
+		.newline{
+			width: 1px;
+			height: 24px;
+			width: 1px;
+			margin: 2px 15px 0;
+			background: #DDD;
+			float: left;
+		}
+		.search-div a{
+			color:#62ab00;
+			line-height: 25px;
+			font-size: 24px;
+			float:left;
+		}
+		.select-div{
+			float: left;
+		    position: relative;
+		    z-index: 40;
+		    margin: 10px 0 0 15px;
+		    cursor: pointer;
+		}
+		.triangle-span{
+			position: relative;
+		    top: 9px;
+		    left:3px;
+		    cursor: pointer;
+			display: inline-block;
+		    width: 0;
+		    height: 0;
+		    font-size: 0;
+		    line-height: 0;
+		    overflow: hidden;
+		    border-width: 4px;
+		    border-style: solid dashed dashed dashed;
+		    border-color: #969695 transparent transparent transparent;
+		    vertical-align: -1px;
+		}
+		.searchbutton{
+			float:right;
+			height: 34px;
+			width: 120px;
+			float:left;
+			background-color: #f60;
+			color: white;
+			font-size: 18px;
+		}
+		.searchtext{
+			width:480px;
+			height: 16px;
+			padding:8px 10px;
+			border: 1px solid #ccc;
+			float:left;
+		}
+	.devide-div{
+		width: 100%;
+		margin-top: 15px;
+		background: #62ab00;
+		height: 40px;
+
+	}
+			.devide-div ul li{
+				float: left;
+				height: 40px;
+    			line-height: 40px;
+    			padding: 0 24px 0 25px;
+    			color:white;
+    			font-size: 16px;
+			}
+			.devide-div ul li:hover{
+				background: #599700;
+			}
+				.new-span{
+					display: inline-block;
+				    width: 27px;
+				    height: 18px;
+				    background: url(../img/icon_new.gif)no-repeat;
+				    position: absolute;
+				    margin-top: 2px;
+				    margin-left: 9px;
+				}
+	.choose-div{
+		border:1px solid #ddd;
+		margin-top:20px;
+		padding:4px 0 1px 20px;
+		
+	}
+		.choose-div a:hover{
+			color:#f60;
+		}
+		.choose-position1{
+			border-top: 1px dashed #ddd;
+		}
+			.choose-position a{
+				margin-right: 10px;
+				width: 80px;
+				line-height: 44px;
+
+			}
+			.choose-positionitem{
+				position: relative;
+				width: 1038px;
+				border: 1px solid #ddd;
+				padding: 7px 20px;
+				background: #f9f9f9;
+				line-height: 28px;
+			}
+			 .position-span{
+			 	margin-right: 8px;
+			 }
+	.content-div{
+		width:100%;
+		margin-top: 20px;
+		overflow:hidden;
+	}
+		.leftcontent-div{
+			width:900px;
+			float:left;
+		}
+			.page-div{
+				height: 32px;
+			    line-height: 32px;
+			    overflow: hidden;
+			    margin: 30px 0 0;
+			}
+				.pagination-div{
+					float: right;					
+    			  
+				}
+				 .pagination-div a{
+				 	border: 1px solid #CCC;
+    			    color: #999;
+    			    width: 28px;
+    			    height: 28px;
+    			    display: inline-block;
+				    text-align: center;
+				    font-size: 14px;
+				    line-height: 28px;
+				    border-radius: 2px;
+				    margin-right: 10px;
+				    vertical-align: top;
+				 }
+			.sort-div{
+			width: 100%;
+			height: 38px;
+    		border: 1px solid #ddd;
+    		background: #f9f9f9;
+		    }
+		    	.choosehouse-div{
+		    		float: left;
+					height: 38px;
+					line-height: 38px;
+					color: #333;
+					font-size: 16px;
+					padding: 0 20px;
+					position: relative;
+					z-index: 0;
+		    	}
+		    .condi-sort{
+			    width:100%;
+			    height:45px;
+			    border-bottom: 1px solid #ddd;
+			    margin-top:1px;
+		    }
+		    	.condi-sort a{
+				    height: 44px;
+				    color: #666;
+				    font-size: 14px;
+				    line-height: 44px;
+				    margin-left: 22px;
+		    	}
+		    	 .input-div{
+		    	 	display:inline;
+				    height: 44px;
+				    color: #666;
+				    font-size: 14px;
+				    line-height: 44px;
+				    margin-left: 22px;
+		    	 }
+		    	 	.input-div span{
+		    	 		display: inline-block;
+					    margin-left: 5px;
+					    cursor: pointer;
+		    	 	}
+		    	 .total-span{
+					float: right;
+				    color: #999;
+				    font-size: 14px;
+				    line-height: 44px;
+				    padding-right: 18px;
+		    	 }
+
+		.rightcontent-div{
+			width:260px;
+			float:left;
+			margin-left: 20px;
+		}
+		    
+			.rightadd-div{
+			    border: 1px solid #ddd;
+			    margin-bottom: 20px;
+			    font-size: 14px;
+			    padding: 20px 0;
+			    	
+			}
+		    	
+		    	.add-boxdiv{
+		    		margin: 0px auto;		    		
+				    width: 210px;
+				    height: 200px;
+		    	}
+					.add-boxdiv img{
+						width:900px;
+						height: 175px;
+						float: left;    		
+					    width: 210px;
+					    height: 200px;
+						
+					}
+			.housedetail-div{
+				padding: 20px 0 15px;
+			    font-size: 14px;
+			    border-bottom: 1px dashed #ddd;
+			    cursor: pointer;
+			    overflow: hidden;
+			}
+			.housedetail-div img{
+				float: left;
+			}
+				.houseinfo-div{
+					float: left;
+				    width: 700px;
+				    padding-left: 20px;
+				}
+				.housename-div{
+					display: block;
+				    height: 28px;
+				    line-height: 28px;
+				    margin-top: -3px;
+				}
+					.namespan1-div{
+					    font-size: 20px;
+					}
+					.namespan2-div{
+						display: inline-block;
+					    width: 14px;
+					    height: 14px;
+					    line-height: 14px;
+					    padding: 1px 0 0 1px;
+					    font-size: 12px;
+					    text-align: center;
+					    vertical-align: middle;
+					    color: #f46520;
+					    border: solid 1px #f46520;
+					}
+					.namespan3-div{
+						display: inline-block;
+					    font-size: 14px;
+					    color: #999;
+					    margin-left: 5px;
+					    vertical-align: middle;
+					}
+					.map-span1{
+						line-height: 22px;
+					    color: #666;
+					}
+					.map-span2{
+						float: right;
+						font-size: 14px;
+					    color: #666;
+					    height: 30px;
+					    line-height: 30px;
+					}
+					.map-span3{
+					padding: 0 2px;
+				    color: #e54b00;
+				    font-family: Tahoma,Arial,"Helvetica Neue",Helvetica,sans-serif;
+				    font-size: 22px;
+				    font-weight: bold;
+					}
+					.huxing-span{
+						display: block;
+					    margin: 12px 0 0;
+					    color: #666;
+					    height: 22px;
+					    line-height: 22px;
+					    overflow: hidden;
+					}
+					.houseinfo-div p{
+						margin: 12px 0 0;
+					    color: #666;
+					    height: 22px;
+					    line-height: 22px;
+					    overflow: hidden;
+					}
+					.blank-span{
+						display: inline-block;
+					    color: #999;
+					    padding: 0 4px;
+					    text-align: center;
+					    border: 1px solid #ccc;
+					    margin-right: 6px;
+					    vertical-align: top;
+					    border-radius: 2px;
+					}
+				.houseinfo-div a{
+					display: block;
+				}
+					.qiang-span{
+						background-color:#f46520;
+						width: 20px;
+					    height: 20px;
+					    line-height:20px;
+					    font-size: 20px;
+					    font-family: 'SimHei';
+					    color: #fff;
+					    border-radius: 3px;
+					    margin-right: 5px;
+					    vertical-align: middle;
+					    text-align: center;
+					}
+	.guesslike-div{
+		border: 1px solid #ddd;
+	    font-size: 14px;
+	    margin-top: 30px;
+	    overflow: hidden;
+	}
+		.guesslike-div h3{
+			font-size: 18px;
+		    padding: 14px 0 0 19px;
+		    height: 28px;
+		    line-height: 28px;
+		    font-weight: normal;
+		}
+		.guesslist-div{
+			padding:0 0 10px 18px;
+			overflow: hidden;
+		}
+		 .guessdetail-div{
+		 	display: block;
+		    float: left;
+		    padding: 10px 10px 5px;
+		    width: 170px;
+		 }
+	.bottomadd-div{
+		margin: 15px 0;
+	}	
+		.infoitem-div a{
+			color: #999;
+		    padding-left: 8px;
+		    font-size: 14px;
+		    cursor: pointer;
+		    display: inline-block;
+			/*white-space: nowrap;*/
+			margin: 0 0 5px 0;
+		}
+		.infoitem2-div a{			
+			color: #999;
+		    padding-left: 8px;
+		    font-size: 14px;
+		    cursor: pointer;
+		    display: inline-block;
+			/*white-space: nowrap;*/
+			margin: 0 0 20px 0;
+		}
+	.bigfont-div{
+		font-size: 16px;
+	    color: #999;
+	    border-bottom: 2px solid #62ab00;
+	    line-height: 30px;
+	    margin-bottom: 20px;
+	    text-align: center;
+	    padding-bottom: 10px;
+	}
+	.bigfont-div span{
+		font-size: 16px;
+	    color: #999;
+	}
+	.avoid-div{
+		background-color: #f7f7f7;
+	    color: #999;
+	    margin: 0 auto 20px;
+	    width: auto;
+	    padding: 12px 35px 12px 35px;
+	    text-align: left;
+	}
+	.intro-div{
+		width: 100%;
+		border-top: 1px solid #e0e0e0;
+    	padding-top: 15px;
+    	display: inline-block;
+		text-align: center;	
+	}
+
+			.intro-div ul{
+				margin-left:185px;
+				text-align: center;
+				float: clear;				
+			}
+				.intro-div ul li{
+					font-size: 10px;
+					margin-left: ;
+				}
+				.intro-div span{
+					padding: 0 10px;
+					font-size: 10px;
+				}
+.fixed-two{
+    text-align: center;
+    position: fixed;
+    z-index: 89;
+    left: 50%;
+    bottom: 100px;
+    width: 80px;
+}
+	.code{
+		display: block;
+	    width: 74px;
+	    height: 114px;
+	    padding: 3px;
+	    background: #a1cd66;
+	    color: #FFF;
+	    font-size: 14px;
+	    margin-bottom: 16px;
+	    margin-left: 600px;
+	}
+		.code-img{
+			width: 70px;
+		    height: 70px;
+		    padding: 2px;
+		    background: #FFF;
+		}
+		.code-img img{
+			width: 70px;
+    		height: 70px;
+		}
+
+
+/*页面2*/
+.all2-div{
+	width:1080px;
+	margin:0px auto;
+	overflow: hidden;
+}
+	.item-div{
+		float: left;
+		display: inline;
+		width: 432px;
+	    height: 34px;
+	    overflow: hidden;
+	}
+	.sitesearch-div{    
+		padding-top: 20px;
+	    height: 34px;
+	    line-height: 34px;
+		
+	}
+		.sitesearch-div a{
+			color: #666;
+			font-size: 12px;
+		}
+		.sitesearch-div span{
+		    padding: 0 6px;
+		    display: inline-block;
+		}
+	.lead-div{
+	    height: 90px;
+	    overflow: hidden;
+	    margin-top: 23px;
+	}
+		.leadcode-div{
+			float: left;
+			padding-right: 30px;
+		}
+			.lead-div p{
+			    color: #60ab00;
+	    		line-height: 22px;
+	    		font-size: 12px;
+			}
+		.leadtitle-div{
+			overflow: hidden;
+		}
+		.leadtitlebig-div{
+			float: left;
+		    font-size: 28px;
+		    line-height: 42px;
+		   
+		}
+			.sale-div{
+				float: left;
+			    overflow: hidden;
+			    background: url(../img/kan.png);
+			    width: 48px;
+			    height: 25px;
+			    line-height: 25px;
+			    padding-left: 6px;
+			    text-align: center;
+			    color: #fff;
+			    margin: 7px 0 0 7px;
+			    font-size: 14px;
+			    background-position: -92px -275px;
+			}
+	.tag-div{
+		overflow: hidden;
+		
+	}
+		.tagleft-div{
+			float: left;
+		    padding-top: 14px;
+		    height: 26px;
+		    overflow: hidden;
+		}
+		
+			.tagleft-div span{
+				display: inline;
+			    float: left;
+			    padding: 0 9px 0 10px;
+			    height: 24px;
+			    line-height: 24px;
+			    border: 1px solid #ccc;
+			    font-size: 14px;
+			    color: #999;
+			    margin-right: 10px;
+			    white-space: nowrap;
+			}
+		.phone-div{
+			float: right;
+		    margin-top: 14px;
+		    font-size: 14px;
+		}
+	.add2-div{
+		padding-bottom: 10px;
+	}
+		.add2-div img{
+			width: 100%;
+		    height: 150px;
+		    vertical-align: bottom;
+		    display: inline;
+		}
+	.contain-div{
+		border: 1px solid #e6e6e6;
+	    border-radius: 5px;
+	    margin-top: 10px;
+	    font-size: 16px;
+	    padding-top: 14px;
+	    overflow: hidden;
+	}
+		.contain-pic{
+			float: left;
+		    width: 470px;
+		    padding: 0 0 14px 14px;
+		
+		}
+			.contain-pic img{
+				position: relative;
+			    width: 451px;
+			    height: 338px;
+			    overflow: hidden;
+			}
+		.snav-div{
+			margin: 8px 0 0 -2px;
+		    overflow: hidden;
+		}
+			.snav-div img{
+			display: inline;
+		    float: left;
+		    border: 1px solid #fff;
+		    width: 86px;
+		    height: 63px;
+		    margin-left: 3px;
+		    position: relative;
+			}
+		.basicdetail-div{
+			width: 580px;
+		    float: left;
+		    margin-top: 4px;
+		    position: relative;
+    		line-height: 26px;
+		}
+			.basicprice-div{
+				font-size: 16px;
+				height: 45px;
+				line-height: 45px;
+			}
+			.blankgreen-div{
+				width: 578px;
+			    height: 54px;
+			    overflow: hidden;
+			    border: 1px solid #e9f3d9;
+			    background-color: #f7fded;
+			    clear: both;
+			    position: relative;
+			    color: #999;
+			    zoom: 1;
+			}
+				.blankgreen-div a{
+					width: 25px;
+				    height: 35px;
+				    float: left;
+				    margin: 9px 13px 0 17px;
+				    background-position: -210px -310px;
+				    display: inline-block;
+				    font-size: 0;
+				    overflow: hidden;
+				    vertical-align: middle;
+				    background-image: url(../img/kan.png);
+				    background-repeat: no-repeat;
+				}
+				.blankgreen-div span{
+					height: 54px;
+				    line-height: 54px;
+				    color: #62ab00;
+				    font-size: 35px;
+				    font-weight: normal;
+				}
+	.newactive-div{
+		margin-top:30px;
+	}
+		.newactive-div h3{
+			font-size: 24px;
+		    color: #333;
+		    padding-bottom: 8px;
+		    padding-left: 15px;
+		    font-weight: normal;
+		}
+		.activecontent-div{
+			padding: 20px 15px;
+		    border: 1px solid #ddd;
+		    position: relative;
+		    cursor: pointer;
+		    overflow: hidden;
+		}
+			.activeleftpic-div{
+				float: left;
+				position: absolute;
+			    width: 200px;
+			    height: 150px;
+			}
+				.activeleftpic-div img{					
+				    width: 200px;
+				    height: 150px;					
+				}
+			.activeinfo-div{
+				float: left;
+			    margin-left: 210px;
+			    background: #fffaec;
+			    width: 838px;
+			    height: 150px;
+			    cursor: pointer;
+			}
+				.loupan-div{
+					font-size: 16px;
+				    color: #666;
+				    padding: 15px 0 0 20px;	
+				}
+				.shuliang-div{
+					font-size: 30px;
+				    color: #f60;
+				    padding: 15px 0 0 20px;
+				}
+				.time-div{
+					font-size: 16px;
+				    color: #666;
+				    padding: 15px 0 0 20px;
+				}
+	.mianfei-div{
+		overflow: hidden;
+	    margin-top: 30px;
+	    font-size: 14px;
+	    border: 1px solid #e6e6e6;
+    	border-radius: 5px;    
+    	padding: 13px 0 12px;
+    	line-height: 20px;
+	}
+		.mianfeicontent-div{
+			
+			margin: 0 14px;
+		    margin-top: -1px;
+		    overflow: hidden;
+		}
+			.kan-span{
+				display: inline-block;
+				background: url(../img/kan.png);
+			    background-position: -58px 0;
+			    width: 49px;
+			    height: 49px;
+			    margin-right: 20px;
+			    overflow: hidden;
+			    float: left;
+			}
+			.actitem-div{
+				width: 625px;
+				float: left;
+			}
+				.actitem-div h4{
+					font-size: 20px;
+				    line-height: 28px;
+				    word-break: break-all;
+				    word-wrap: break-word;
+				    overflow: hidden;
+				    cursor: pointer;
+				    margin: -3px 0 4px;
+				    font-weight: normal;
+				}
+			.xiaoche-div{
+				color: #666;
+			    height: 20px;
+			    overflow: hidden;
+			    zoom: 1;
+			}
+		.join-div{
+			width: 180px;
+		    margin-top: 15px;
+		    font-size: 16px;
+		    float: left;
+    		display: inline;
+		}
+			.mianfeicontent-div a{
+				cursor: pointer;
+			    vertical-align: middle;
+			    border-radius: 3px;
+			    color: #FFF;
+			    overflow: hidden;
+			    background: #62ab00;
+			    padding: 0 29px 0 30px;
+			    font-size: 18px;
+			    height: 40px;
+			    line-height: 40px;
+			    margin-top: 4px;
+    			margin-right: 13px;
+    			float: right;
+    			display: inline;				
+			}
+		
+	.clearfix-div{
+		overflow: hidden;
+	}
+		.clearfixtitle-div{
+			margin: 30px 0 0;
+			overflow: hidden;
+		}
+			.clearfixtitle-div h3{
+				font-size: 24px;
+			    float: left;
+			    padding-left: 15px;
+			    font-weight: normal;
+			    overflow: hidden;
+			}
+		.zixun-div{
+			display: inline;
+			float: left;
+			width: 694px;
+		}
+			.mod{
+				border: 1px solid #e6e6e6;
+			    border-radius: 5px;
+			    margin-top: 10px;
+			    font-size: 16px;
+			}
+				.innermod-div{
+					    position: relative;
+					    margin: 13px;
+				}
+					.innertitle-div{
+						font-size: 16px;
+					}
+						.dongtai-span{
+							border: 1px solid #e6e6e6;
+						    border-radius: 2px;
+						    padding: 1px 2px;
+						    color: #999;
+						    font-size: 14px;
+						    margin-right: 9px;
+						}
+						.innertitle-div p{
+							font-size: 16px;
+							height: 43px;
+						    color: #656565;
+						    overflow: hidden;
+						    text-align: left;
+						    margin: 14px 0;
+						}
+		.dingyue-div{
+			float: left;
+			margin-left: 26px;
+			width: 360px;
+		}
+			.dingyuecontent-div{
+				background-color: #f9f9f9;    
+				border: 1px solid #e6e6e6;
+			    border-radius: 5px;
+			    margin-top: 10px;
+			    font-size: 16px;
+			}
+				.dingyueinner-div{
+					height: 146px;
+				    position: relative;
+				    margin: 17px 13px 0 13px;
+				}
+				.dingyueinner-div ul{
+					overflow:hidden;
+					display: block;
+				}
+					.dingyueinner-div ul li{
+						width: 120px;
+						display: inline-block;
+						float: left;	
+						height: 24px;
+   						margin-bottom: 11px;
+					
+					}
+					.dingyueinner-div span{
+						font-size: 16px;
+					}
+				
+							.dingyueinner-div input{
+								width: 16px;
+							    height: 16px;
+							    margin: 0 8px 0 0;
+							    vertical-align: text-bottom;
+							}
+					.dingyueinner-div a{
+						width: 120px;
+					    margin: 0 auto;
+					    background-color: #62ab00;
+					    border-radius: 4px;
+					    color: #fff;
+					    font-size: 16px;
+					    line-height: 40px;
+					    height: 40px;
+					    text-align: center;
+					    display: block;
+					    margin-top: 14px;
+					}
+		.huxingtitle-div{
+		    margin: 30px 0 0;	
+		    overflow: hidden;
+		}
+			.huxingtitle-div h3{
+				font-size: 24px;
+			    float: left;
+			    line-height: 24px;
+			    padding-left: 15px;
+			    font-weight: normal;
+			}
+		.housetype-div{
+			border: 1px solid #e6e6e6;
+		    border-radius: 5px;
+		    margin-top: 10px;
+		    font-size: 16px;
+		    padding: 20px 14px;
+		}
+			.housetype-div ul {
+				margin: -30px -15px 0;
+			    overflow: hidden;
+			}
+				.housetype-div ul li{
+					width: 240px;
+				    height: 264px;
+				    float: left;
+				    margin: 30px 15px 0;
+				}
+			.huxing-content{
+				width: 100%;
+			    height: 72px;
+			    line-height: 21px;
+			    text-align: left;
+			}
+	.guwen-div{
+		overflow: hidden;
+	}
+		.guwen-content{
+			border: 1px solid #e6e6e6;
+		    border-radius: 5px;
+		    margin-top: 10px;
+		    font-size: 16px;
+		    overflow: hidden;
+		    position: relative;
+		    padding: 0 30px;
+		    height: 132px;
+		}
+			.guwen-content ul{
+				height: 130px;
+			    overflow: hidden;
+			    position: absolute;
+			    top: 0;
+			    left: 30px;
+			}
+				.guwen-content ul li{
+					display: block;
+				    float: left;
+				    width: 244px;
+				    overflow: hidden;
+				    padding: 35px 0 0 10px;
+				}
+					.guwen-content img{
+						width: 60px;
+					    height: 60px;
+					    float: left;
+					    overflow: hidden;
+					    display: block;
+					    vertical-align: top;
+					    border-radius: 5px;
+					}
+					.teachername-div{
+						width: 160px;
+					    float: left;
+					    display: block;
+					    margin-left: 20px;	
+					    font-size: 20px;	
+					    overflow: hidden;			    
+					}
+						.teachernameleft-div{
+							margin-top: 18px;
+							font-size: 20px;
+						    height: 20px;
+						    line-height: 20px;
+						    overflow: hidden;
+						    margin-bottom: 5px;
+						    float: left;
+						}
+				.yuyue-div{
+					color: #62ab00;
+				    font-size: 14px;
+				    padding: 0 3px;
+				    border: 1px solid #62ab00;
+				    border-radius: 2px;
+				    display: inline-block;
+				    vertical-align: top;
+				    height: 18px;
+				    line-height: 18px;
+				    margin-left: 10px;
+				}
+	.userclear-div{
+		overflow: hidden;
+	}
+		.userleftclear-div{
+			width: 692px;
+			overflow: hidden;
+			float: left;
+			
+		}
+			.userleftcontent-div{
+				border: 1px solid #e6e6e6;
+			    border-radius: 5px;
+			    margin-top: 10px;
+			    font-size: 16px;
+			}
+				.review-ul{
+					padding: 4px 15px 0;
+				    width: 662px;
+				    margin-top: 1px;
+				    overflow: hidden;
+				    
+				    
+				}
+				 .review-ul li{
+				 	margin-top: 11px;
+				    height: 116px;
+				    border-bottom: 1px dashed #e6e6e6;
+				 }
+				.publishmod-div{
+					height: 100%;
+			    	padding: 9px 15px 8px 0;	
+			    	    
+				}
+	.comment-div{
+		float: right;
+		display: inline;
+	}
+		.commentcontent-div{
+			width: 358px;
+			overflow: hidden;
+			border: 1px solid #e6e6e6;
+		    border-radius: 5px;
+		    margin-top: 10px;
+		    font-size: 16px;
+		    height: 297px;
+		}
+			.commentcontent-div ul{
+				overflow: hidden;
+			}
+				.commentcontent-div ul li{
+					overflow: hidden;
+				    height: 129px;
+				    padding: 0 15px;
+				    width: 100%;
+				  
+				}
+					.line-dashed{
+						border-bottom: 1px dashed #ddd;
+					    height: 0;
+					    line-height: 0;
+					    overflow: hidden;
+					    font-size: 0;
+					    margin: 0 auto;
+					    margin-bottom: 15px;
+					}
+					.commentinfo-div{
+						overflow: hidden;
+					}
+						.commentinfo-div img{
+							margin: 5px 15px 0 0;
+							width:38px;
+							height: 38px;
+							float: left;
+						}
+					.truecomment-div{
+						margin: 5px 0 0;
+					    line-height: 24px;
+					    color: #999;
+					}
+	.map-div{
+		overflow: hidden;
+	}
+		.mapcontent-div{
+		    border: 1px solid #e6e6e6;
+		    border-radius: 5px;
+		    margin-top: 10px;
+		    font-size: 16px;
+		    width: 1048px;
+    		padding: 15px;
+		}
+			.mapcontent-div img{
+				width:550px;
+				height: 350px;
+			}
+			.life-div{
+				width: 480px;
+			    float: right;
+			}
+				.life-ul ul{
+					width: 480px;
+				    height: 35px;
+				    border-bottom: 2px solid #62ab00;
+				    font-size: 20px;
+				    margin-bottom: 10px;
+				}
+					.life-ul li{
+						float: left;
+					    cursor: pointer;
+					}
+						.life-ul li a{							
+						    color: #fff;
+						    display: block;
+						    width: 120px;
+						    color: #333;
+						    height: 35px;
+						    text-align: center;
+						    line-height: 35px;
+						    font-size: 20px;
+						}
+			.lifelist-div p{
+				height: 36px;
+			    display: block;
+			    line-height: 36px;
+			    margin-left: 10px;
+			    overflow: hidden;
+			    white-space: nowrap;
+			    width: 340px;
+			    font-size: 16px;
+			}
+				.yuegongcontent-div{
+					border: 1px solid #e6e6e6;
+				    border-radius: 5px;
+				    margin-top: 10px;
+				    font-size: 16px;
+				    height: 100px;
+				}
+					.yuegongleft-div{
+						width: 509px;
+					    padding: 0 0 5px 30px;
+					    border-right: 1px solid #e6e6e6;
+					    background: #fff;
+					    float: left;
+					    position: relative;
+					    z-index: 2;
+					    border-top-left-radius: 5px;
+					    border-bottom-left-radius: 5px;
+					}
+			.tools-mod{
+				width: 509px;
+			    padding: 0 0 5px 30px;
+			    border-right: 1px solid #e6e6e6;
+			    background: #fff;
+			    float: left;
+			    position: relative;
+			    z-index: 2;
+			    border-top-left-radius: 5px;
+			    border-bottom-left-radius: 5px;
+			}
+			.lifelist-div ul{
+				margin-top: 3px;
+			    height: 230px;
+			    overflow-y: auto;
+			    overflow-x: hidden;
+			}
+				.lifelist-div ul li a{
+					float: left;
+				    width: 36px;
+				    height: 36px;
+				    margin-right: 5px;
+				    vertical-align: middle;
+				    background: url(../img/all_icon.png) no-repeat;
+				    background-position: -96px 0;    
+				}
+					.zhan-p{
+						float: left;
+					    line-height: 40px;
+					    width: 340px;
+					    overflow: hidden;
+					    white-space: nowrap;
+					    text-overflow: ellipsis;
+					}
+						.lu-span{
+						    color: #999;
+    						font-size: 14px;
+						}
+						.mi-span{
+							margin-right: 2px;
+						    float: right;
+						    line-height: 40px;
+						    overflow: hidden;
+						    color: #999;
+    						font-size: 14px;
+    						cursor: pointer;
+						}
+	.guesshouselike-div{
+		overflow: hidden;
+	}
+		.guesscontent-div{
+			border: 1px solid #e6e6e6;
+		    border-radius: 5px;
+		    margin-top: 10px;
+		    font-size: 16px;
+		}
+			.guesscontent-div ul{
+				margin: 14px 0 14px -9px;
+			    line-height: 16px;
+			    overflow: hidden;
+			}
+				.guesscontent-div ul li{
+					float: left;
+				    display: inline;
+				    width: 180px;
+				    margin: 0 14px 0 23px;
+				}
+					.guesscontent-div ul li img{
+						width: 180px;
+					    height: 135px;
+					    margin-bottom: 10px;
+					}
+					.guesscontent-div ul li a{
+						height: 25px;
+					    display: inline-block;
+					    width: 100%;
+					    line-height: 25px;
+					    word-break: break-all;
+					    word-wrap: break-word;
+					    overflow: hidden;
+					}
+					.guesscontent-div ul li p{
+						position: relative;
+					    margin-top: 4px;
+					    color: #f60;
+					    line-height: 18px;
+					    font-size: 16px;
+					}
+	.recomenned-div{
+		overflow: hidden;
+	}
+	.listitem-div{
+		width: 348px;
+	    float: left;
+	    padding-right: 18px;
+	}
+		.listcontent-div{
+		    padding: 5px 0 15px 15px;
+		    border: 1px solid #e6e6e6;
+		    border-radius: 5px;
+		    margin-top: 10px;
+		    font-size: 16px;
+		}
+			.listcontent-div ul{
+				overflow: hidden;
+				font-size: 16px;
+			}
+				.listcontent-div ul li{
+					letter-spacing: -4px;
+				    word-spacing: -4px;
+				    font-size: 0;
+				    padding-top: 10px;
+				    color: #999;
+				}
+					.listcontent-div ul li a{
+						width: 125px;
+					    color: #666;
+					    font-size: 16px;
+					    letter-spacing: normal;
+					    word-spacing: normal;
+					    display: inline-block;
+					    height: 24px;
+					    line-height: 24px;
+					    overflow: hidden;
+					    white-space: normal;
+					    word-break: break-all;
+					    word-wrap: break-word;
+					}
+					.area{
+						width: 90px;
+						font-size: 16px;
+					    letter-spacing: normal;
+					    word-spacing: normal;
+					    display: inline-block;
+					    height: 24px;
+					    line-height: 24px;
+					    overflow: hidden;
+					    white-space: normal;
+					    word-break: break-all;
+					    word-wrap: break-word;
+					}
+					.price{
+						width: 105px;
+					    text-align: right;
+					    font-size: 16px;
+					    letter-spacing: normal;
+					    word-spacing: normal;
+					    display: inline-block;
+					    height: 24px;
+					    line-height: 24px;
+					    overflow: hidden;
+					    white-space: normal;
+					    word-break: break-all;
+					    word-wrap: break-word;
+					}
+	.housead-div{
+	    margin-top: 30px;
+	    overflow: hidden;	
+	}
+		.housead-div img{
+			width:1080px;
+			height: 100px;
+		}
+	.housebuttom-div{
+		overflow: hidden;
+	}	
+		.infoarea-div{
+			border: 1px solid #e6e6e6;
+		    border-radius: 5px;
+		    margin-top: 10px;
+		    font-size: 16px;
+		    padding: 18px 30px 4px;
+		}
+			.info-item{
+				line-height: 30px;
+			    padding: 7px 0 8px;
+			    border-bottom: 1px dashed #e6e6e6;
+			    color: #999;
+			    font-size: 16px;
+			}
+			.info-item a{
+				padding-right: 40px;
+				font-size: 16px;
+				color: #999;
+			}
+			.info-item a:hover{				
+			  color:#f60;				
+			}
+				
