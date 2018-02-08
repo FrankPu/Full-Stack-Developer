@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    let json={a: 12, b: 5};
+
+    let p=new Proxy(json, {
+      get(target, key, proxy){
+        if(key in target){
+          return target[key];
+        }else{
+          throw new Error('no this key');
+        }
+      },
+      set(target, key, val, proxy){
+        //console.log(target, key, val, proxy);
+
+        if(val>=0 && val<=100){
+          target[key]=val;
+        }else{
+          throw new Error('invaild value, only accept 0-100');
+        }
+      },
+      has(){
+
+      },
+      deleteProerty(){
+
+      }
+    });
+
+    p.a=105;
+
+    alert(p.a);
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="my-vue.js" charset="utf-8"></script>
+    <script>
+    window.onload=function (){
+      let vm=new MyVue({
+        el: '#div1',
+        data: {name: 'blue', age: 18, a: 12, b: 5},
+        methods: {
+          fn(){
+            this.a++;
+            this.age++;
+            this.name+='-';
+          }
+        }
+      });
+    };
+    </script>
+  </head>
+  <body>
+    <div id="div1" :title="a+b" v-for="">
+      <div :title="name" class="">我叫{{name}}，我是:aaa，我今年{{age}}岁</div>
+      <div class="">{{a+b}}</div>
+      <input type="button" value="按钮" @click="fn">
+    </div>
+  </body>
+</html>

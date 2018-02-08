@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    let json={};
+
+    let p=new Proxy(json, {
+      get(){
+        alert('有人获取东西');
+      },
+      set(){
+        alert('有人要设置东西');
+      }
+    });
+
+    alert(p.a);
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

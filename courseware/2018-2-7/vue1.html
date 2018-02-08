@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script>
+    window.onload=function (){
+      let vm=new Vue({
+        el: '.box',
+        data: {a: 0, b: 0}
+      });
+
+      document.onclick=function (){
+        vm.a++;
+      };
+    };
+    </script>
+  </head>
+  <body>
+    <div class="box" :title="b" :aaa="b">{{a}}</div>
+  </body>
+</html>
