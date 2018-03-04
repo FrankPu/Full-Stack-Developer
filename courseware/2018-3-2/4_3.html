@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="aaa">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="angular.js" charset="utf-8"></script>
+    <script>
+    let mod=angular.module('aaa', []);
+
+    mod.controller('ctrl1', function ($scope, $timeout, $interval, $http, $q){
+      $scope.a=12;
+
+      $scope.show=function (){
+        $q.all([$http.get('1.txt'), $http.get('2.txt')]).then(arr=>{
+          $scope.a=arr[0].data+arr[1].data;
+        }, err=>{
+          alert('错了');
+        });
+      };
+    });
+    </script>
+  </head>
+  <body>
+    <div ng-controller="ctrl1">
+      <input type="text" name="" value="" ng-model="a">
+      <div class="">{{a}}</div>
+      <input type="button" name="" value="按钮" ng-click="show()">
+    </div>
+  </body>
+</html>

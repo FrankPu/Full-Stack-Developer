@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="aaa">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="angular.js" charset="utf-8"></script>
+    <script>
+    let mod=angular.module('aaa', []);
+
+    mod.controller('ctrl1', function ($scope, $sce){
+      $scope.code=$sce.trustAsHtml('<strong>aaa</strong>sdfsdf');
+      //$scope.code='<strong>aaa</strong>sdfsdf';
+    });
+    </script>
+  </head>
+  <body>
+    <div ng-controller="ctrl1">
+      <div ng-bind-html="code"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="aaa">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="angular.js" charset="utf-8"></script>
+    <script>
+    let mod=angular.module('aaa', []);
+
+    mod.controller('ctrl1', function ($scope){
+      $scope.time=1519998593224;
+    });
+    </script>
+  </head>
+  <body>
+    <div ng-controller="ctrl1">
+      {{time|date:"yyyy-MM-dd HH:mm:ss"}}
+    </div>
+  </body>
+</html>

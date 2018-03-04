@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="aaa">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="jquery.js" charset="utf-8"></script>
+    <script src="angular.js" charset="utf-8"></script>
+    <script>
+    let mod=angular.module('aaa', []);
+
+    mod.controller('ctrl1', function ($scope, $timeout, $interval){
+      $scope.a=12;
+      $scope.show=function (){
+        $.ajax({
+          url: '1.txt',
+          success(str){
+            $scope.a=str;
+
+            $scope.$apply();
+          },
+          error(){
+            alert('失败');
+          }
+        });
+      };
+    });
+    </script>
+  </head>
+  <body>
+    <div ng-controller="ctrl1">
+      <input type="text" name="" value="" ng-model="a">
+      <div class="">{{a}}</div>
+      <input type="button" name="" value="按钮" ng-click="show()">
+    </div>
+  </body>
+</html>

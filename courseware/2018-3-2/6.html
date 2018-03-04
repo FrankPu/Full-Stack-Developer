@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="aaa">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="angular.js" charset="utf-8"></script>
+    <script>
+    let mod=angular.module('aaa', []);
+
+    mod.controller('ctrl1', function ($scope, $timeout, $interval, $http, $q){
+      $scope.arr=[12,5,8,9,9];
+
+    });
+    </script>
+  </head>
+  <body>
+    <div ng-controller="ctrl1">
+      <ul>
+        <li ng-repeat="a in arr track by $index">{{a}}</li>
+      </ul>
+    </div>
+  </body>
+</html>
