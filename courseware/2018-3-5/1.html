@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="mod1">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="angular.js" charset="utf-8"></script>
+    <script>
+    let mod1=angular.module('mod1', []);
+
+    mod1.controller('ctrl1', function ($scope){
+      $scope.a=12;
+    });
+
+    mod1.directive('blue', function (){
+      return {
+        restrict: 'E',
+        template: '<div ng-controller="ctrl1"><h1>数字：{{a}}</h1><p></p></div>'
+      };
+    });
+    </script>
+  </head>
+  <body>
+    <blue>原始的文字</blue>
+  </body>
+</html>
