@@ -241,3 +241,47 @@ ng-init初始值：
 </html>
 ```
 
+---
+
+### 自定义指令 `directive`
+
+```javascript
+<!DOCTYPE html>
+<html ng-app="mod1">
+<head>
+    <script src="angular.js"></script>
+    <script>
+        let mod = angular.module('mod1',[]);
+
+        mod.controller('aaa',function($scope){
+            $scope.a=12;
+        })
+
+        mod1.directive('rage', function(){	//自定义指令directive
+            return {
+                restrict:'E',
+                template:'<div ng-controller="aaa"><h1>数字：{{a}}</h1></div>'
+            }
+        })
+    </script>
+</head>
+<body>
+    <rage></rage>	//然后可以像标签一样直接输出template里的内容
+    <div ng-controller="aaa">
+        {{a}}
+    </div>    
+</body>
+</html>
+```
+
+
+
+在自定义指令的`restrict` 约束中，有4种类型：
+
+- E	 element——元素
+- C       class——类
+- A       attributte——属性
+- M      comment——注释
+
+可以记为ECMA，便于记忆。
+
