@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    * {margin:0; padding:0; list-style: none;}
+    .slider {width:400px; height:300px; margin:10px auto 0; position:relative; overflow:hidden;}
+    .slider ul {width:1600px; overflow:hidden; height:300px; position:absolute; left:0; top:0; transition:0.7s all ease}
+    .slider ul li {float:left; width:400px; height:300px;}
+    .slider ol {width:104px; height:26px; position:absolute; bottom: 10px; left: 0;}
+    .slider ol li {width:16px; height:16px; background:rgba(255,255,255,0.6); float:left; margin:5px; border-radius:50%;}
+    .slider ol li.active {background:rgba(255,255,255,1)}
+    </style>
+    <script src="browser.js" charset="utf-8"></script>
+    <script src="react.js" charset="utf-8"></script>
+    <script src="react-dom.js" charset="utf-8"></script>
+    <script type="text/babel">
+    class UserList extends React.Component{
+      constructor(...args){
+        super(...args);
+
+        this.state={
+          users: this.props.users
+        }
+      }
+
+      delChild(id){
+        let users=this.state.users;
+
+        this.setState({
+          users: users.filter(json=>json.id!=id)
+        })
+      }
+
+      render(){
+        let users=this.state.users.map(json=><User data={json} parent={this}></User>);
+
+        return <ul>
+          {users}
+        </ul>
+      }
+    }
+
+    class User extends React.Component{
+      constructor(...args){
+        super(...args);
+      }
+
+      fn(){
+        this.props.parent.delChild(this.props.data.id);
+      }
+
+      render(){
+        return <li>
+          <div>用户名: {this.props.data.name}</div>
+          <div>密码:{this.props.data.pass}</div>
+          <div>
+            <a href="javascript:;" onClick={this.fn.bind(this)}>删除</a>
+          </div>
+        </li>
+      }
+    }
+
+    window.onload=function (){
+      let oDiv=document.getElementById('div1');
+
+      ReactDOM.render(
+        <UserList users={[
+          {id: 1, name: 'blue', pass: '123456'},
+          {id: 2, name: '张三', pass: '654321'},
+          {id: 3, name: '小明', pass: '111111'},
+        ]}></UserList>,
+        oDiv
+      );
+    };
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+
+    </div>
+  </body>
+</html>

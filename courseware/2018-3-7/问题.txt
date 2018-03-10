@@ -1,0 +1,28 @@
+http.request设置headers请求头时，Host, Refer这两个头都无法设置，我试了下，不行
+
+不调用setState不渲染，感觉就不是双向绑定了
+$apply ≈ setState
+
+脏检查那岂不是很落后——在JS里面：
+1.脏检查为啥不好？
+2.为啥Angular、React不换？
+
+用过vue以后用react觉得很不爽
+
+如果摩拜车锁上设备厂商写了socket连接到业务方服务器，那么作为web全站， nodeJS这边也是用websocket来配合连接设备过来的socket吗，这时socket.io用不了，那么怎么办:)
+socket -> net
+
+mysql中一个字段（分数:score）为varchar, update stu_table set score=score+10，也是可以的，不用类型转换吗:)
+
+let server=net.createServer(function (sock){
+  sock.write();
+
+  sock.on('');
+});
+server.listen(546);
+
+但从性能上说作为一个大型网站的服务器，node胜过java、.net吗
+
+--------------------------------------------------------------------------------
+
+好多个select，怎么才能改一个select的值，其他的select的值不改变？

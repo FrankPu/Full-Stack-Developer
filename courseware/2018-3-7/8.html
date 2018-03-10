@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    * {margin:0; padding:0; list-style: none;}
+    .slider {width:400px; height:300px; margin:10px auto 0; position:relative; overflow:hidden;}
+    .slider ul {width:1600px; overflow:hidden; height:300px; position:absolute; left:0; top:0; transition:0.7s all ease}
+    .slider ul li {float:left; width:400px; height:300px;}
+    .slider ol {width:104px; height:26px; position:absolute; bottom: 10px; left: 0;}
+    .slider ol li {width:16px; height:16px; background:rgba(255,255,255,0.6); float:left; margin:5px; border-radius:50%;}
+    .slider ol li.active {background:rgba(255,255,255,1)}
+    </style>
+    <script src="browser.js" charset="utf-8"></script>
+    <script src="react.js" charset="utf-8"></script>
+    <script src="react-dom.js" charset="utf-8"></script>
+    <script type="text/babel">
+    let a=null;
+
+    class Cmp1 extends React.Component{
+      constructor(...args){
+        super(...args);
+
+        this.state={
+          a: 0
+        }
+
+        window.a=()=>{
+          this.setState({
+            a: this.state.a+1
+          });
+        };
+      }
+
+      render(){
+        console.log('渲染');
+
+        return <div>组件1: {this.state.a}</div>;
+      }
+    }
+
+    class Cmp2 extends React.Component{
+      constructor(...args){
+        super(...args);
+      }
+
+      fn(){
+        window.a();
+      }
+
+      render(){
+        console.log('渲染');
+
+        return <div>组件2 <input type="button" value="按钮" onClick={this.fn.bind(this)} /></div>;
+      }
+    }
+
+    window.onload=function (){
+      let oDiv=document.getElementById('div1');
+
+      ReactDOM.render(
+        <div>
+          <Cmp1></Cmp1>
+          <Cmp2></Cmp2>
+        </div>,
+        oDiv
+      );
+    };
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    * {margin:0; padding:0; list-style: none;}
+    .slider {width:400px; height:300px; margin:10px auto 0; position:relative; overflow:hidden;}
+    .slider ul {width:1600px; overflow:hidden; height:300px; position:absolute; left:0; top:0; transition:0.7s all ease}
+    .slider ul li {float:left; width:400px; height:300px;}
+    .slider ol {width:104px; height:26px; position:absolute; bottom: 10px; left: 0;}
+    .slider ol li {width:16px; height:16px; background:rgba(255,255,255,0.6); float:left; margin:5px; border-radius:50%;}
+    .slider ol li.active {background:rgba(255,255,255,1)}
+    </style>
+    <script src="browser.js" charset="utf-8"></script>
+    <script src="react.js" charset="utf-8"></script>
+    <script src="react-dom.js" charset="utf-8"></script>
+    <script type="text/babel">
+    class Banner extends React.Component{
+      constructor(...args){
+        super(...args);
+
+        this.state={now: 0};
+      }
+
+      fn(index){
+        this.setState({
+          now: index
+        })
+      }
+
+      render(){
+        let arrLi=this.props.list.map((str,index)=><li key={index}><img src={str} /></li>);
+        let arrOlLi=this.props.list.map((str,index)=><li key={index} className={index==this.state.now?'active':''} onMouseOver={this.fn.bind(this, index)}></li>);
+
+        return <div className="slider">
+          <ul style={{left: -400*this.state.now}}>
+            {arrLi}
+          </ul>
+          <ol>
+            {arrOlLi}
+          </ol>
+        </div>;
+      }
+    }
+
+    window.onload=function (){
+      let oDiv=document.getElementById('div1');
+
+      ReactDOM.render(
+        <Banner
+          list={[
+            "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520436539727&di=61a97c1fbf60a997bc8a69d29842cbef&imgtype=0&src=http%3A%2F%2Fwww.hz65.com%2Fsystem_dntb%2Fuploadfiles%2F2008922172244684.jpg",
+            "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3485034023,3206079511&fm=27&gp=0.jpg",
+            "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520436546883&di=5b1f71c5066753340ae016ae129d0a8f&imgtype=jpg&src=http%3A%2F%2Fimg2.imgtn.bdimg.com%2Fit%2Fu%3D872956992%2C216357381%26fm%3D214%26gp%3D0.jpg",
+            "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520436542551&di=7027243f371394fce97f938fce093e95&imgtype=0&src=http%3A%2F%2Fimg.anfone.com%2Foutside%2Fanfone%2F201411%2F2014113018370263254_pre1.jpg"
+          ]}
+        ></Banner>,
+        oDiv
+      );
+    };
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    .box {width:200px; height:200px;}
+    .normal {background:#CCC}
+    .active {background:green}
+    </style>
+    <script src="browser.js" charset="utf-8"></script>
+    <script src="react.js" charset="utf-8"></script>
+    <script src="react-dom.js" charset="utf-8"></script>
+    <script type="text/babel">
+    class Test extends React.Component{
+      constructor(...args){
+        super(...args);
+
+        //初始化
+        this.state={flag: 1};
+      }
+
+      fn(){
+        if(this.state.flag==1){
+          this.setState({flag: 0});
+        }else{
+          this.setState({flag: 1});
+        }
+      }
+
+      render(){
+        console.log('渲染了');
+
+        let arr=null;
+
+        if(this.state.flag){
+          arr=['box', 'active'];
+        }else{
+          arr=['box', 'normal'];
+        }
+
+        return <div>
+          <div className={arr.join(' ')}></div>
+          <input type="button" value="按钮" onClick={this.fn.bind(this)} />
+        </div>;
+      }
+    }
+
+    window.onload=function (){
+      let oDiv=document.getElementById('div1');
+
+      ReactDOM.render(
+        <Test></Test>,
+        oDiv
+      );
+    };
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+
+    </div>
+  </body>
+</html>
