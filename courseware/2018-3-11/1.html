@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="jquery.js" charset="utf-8"></script>
+    <script>
+    $.ajax({
+      url: 'data.json',
+      dataType: 'json',
+      success(arr){
+        alert(arr.length);
+      },
+      error(){
+        alert('错了');
+      }
+    });
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
