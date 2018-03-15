@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="js/jquery.js" charset="utf-8"></script>
+    <script>
+    $.ajax({
+      url: 'http://localhost:8080/api/cart/157105028',
+      type: 'delete',
+      success(res){
+        alert('成功');
+      },
+      error(){
+        alert('失败');
+      }
+    });
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

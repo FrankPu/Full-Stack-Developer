@@ -1,0 +1,58 @@
+1层：爬虫-clawer.js       校验——业务逻辑
+2层：数据库-database.js   校验——安全性
+
+--------------------------------------------------------------------------------
+
+1.跟踪用户——全面
+  浏览、下单、停留
+2.性能
+3.Vue
+
+接口： /api/
+1.收集数据        /collect/:type/:data/
+  类型
+  数据
+
+2.饭店数据        /restaurant/:page/:size/
+
+3.菜单数据        /menu/:restaurant_id/
+
+4.购物车          /cart
+  添加            POST /cart/:item_id/:count/
+  删除            DELETE /cart/:id/
+  结算
+
+前台
+
+--------------------------------------------------------------------------------
+
+Vue
+
+--------------------------------------------------------------------------------
+
+let router=new Router();
+let routerUser=new Router();
+let routerUserComment=new Router();
+let routerUserProfile=new Router();
+let routerComp=new Router();
+let routerCompItem=new Router();
+let routerCompOrder=new Router();
+
+server.use(router);
+
+router.use(routerUser);
+router.use(routerComp);
+
+routerUser.use(routerUserComment);
+routerUser.use(routerUserProfile);
+
+routerComp.use(routerCompItem);
+routerComp.use(routerCompOrder);
+
+/
+  user/
+    comment/
+    profile/
+  comp/
+    item/
+    order/
